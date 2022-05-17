@@ -6,3 +6,81 @@ Medium green: #55c57a
 Dark green: #28b485
 
 */
+
+
+/* This is how to declare a universal selector */
+
+* {
+    /* By default, the browser will add some padding and margins to the page. The code below will prevent that from happening */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-size: 16;
+    line-height: 1.7;
+    color: #777;
+    /* The body c */
+    padding: 30px;
+}
+
+
+/* . is used to select the custom classes */
+
+.header {
+    /* vh - view port height. This will make it so that the height of the header will always be 95% of the viewport height */
+    height: 95vh;
+    /* using the comma separator, we can add multiple images. The first one will be the top most image */
+    background-image: linear-gradient( to right bottom, rgba(126, 213, 111, 0.8), rgb(40, 180, 133, 0.8)), url(../img/hero.jpg);
+    /* cover will try and fit the element into the viewport */
+    background-size: cover;
+    /* This will fix the top of the image in place, the rest of the image will crop to fit the viewport */
+    background-position: top;
+    /* This will allow the header to be clipped based on the specified shape. Inside the polygon function, specify the area of the image that should still be visible */
+    /* corresponding corners: polygon( TL, TR, BR, BL) */
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    /* The child elements will now use this parameter to align them selves */
+    position: relative;
+}
+
+.logo-box {
+    position: absolute;
+    /* Will be positioned 40px from top and left based on the parent element of header. This is because the header has a position attribute set to relative */
+    top: 40px;
+    left: 40px;
+}
+
+.logo {
+    height: 35px;
+}
+
+.text-box {
+    position: absolute;
+    /* The percentages below are for  */
+    top: 40%;
+    left: 50%;
+    /* This will move the origin to the center of the element rather than default of top edge and the left edge */
+    transform: translate(-50%, -50%);
+}
+
+.heading-primary {
+    color: white;
+    text-transform: uppercase;
+}
+
+.heading-primary-main {
+    display: block;
+    font-size: 60px;
+    font-weight: 400;
+    letter-spacing: 35px;
+}
+
+.heading-primary-sub {
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 17.4px;
+}
