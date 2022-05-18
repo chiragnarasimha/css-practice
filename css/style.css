@@ -7,80 +7,174 @@ Dark green: #28b485
 
 */
 
-
 /* This is how to declare a universal selector */
 
 * {
-    /* By default, the browser will add some padding and margins to the page. The code below will prevent that from happening */
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  /* By default, the browser will add some padding and margins to the page. The code below will prevent that from happening */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
+
+/* In this page, everything is container within the body. This is the style that will be applied by default. */
 
 body {
-    font-family: "Lato", sans-serif;
-    font-weight: 400;
-    font-size: 16;
-    line-height: 1.7;
-    color: #777;
-    /* The body c */
-    padding: 30px;
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 16;
+  line-height: 1.7;
+  color: #777;
+  /* The body c */
+  padding: 30px;
 }
-
 
 /* . is used to select the custom classes */
 
 .header {
-    /* vh - view port height. This will make it so that the height of the header will always be 95% of the viewport height */
-    height: 95vh;
-    /* using the comma separator, we can add multiple images. The first one will be the top most image */
-    background-image: linear-gradient( to right bottom, rgba(126, 213, 111, 0.8), rgb(40, 180, 133, 0.8)), url(../img/hero.jpg);
-    /* cover will try and fit the element into the viewport */
-    background-size: cover;
-    /* This will fix the top of the image in place, the rest of the image will crop to fit the viewport */
-    background-position: top;
-    /* This will allow the header to be clipped based on the specified shape. Inside the polygon function, specify the area of the image that should still be visible */
-    /* corresponding corners: polygon( TL, TR, BR, BL) */
-    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-    /* The child elements will now use this parameter to align them selves */
-    position: relative;
+  /* vh - view port height. This will make it so that the height of the header will always be 95% of the viewport height */
+  height: 95vh;
+  /* using the comma separator, we can add multiple images. The first one will be the top most image */
+  background-image: linear-gradient(
+      to right bottom,
+      rgba(126, 213, 111, 0.8),
+      rgb(40, 180, 133, 0.8)
+    ),
+    url(../img/hero.jpg);
+  /* cover will try and fit the element into the viewport */
+  background-size: cover;
+  /* This will fix the top of the image in place, the rest of the image will crop to fit the viewport */
+  background-position: top;
+  /* This will allow the header to be clipped based on the specified shape. Inside the polygon function, specify the area of the image that should still be visible */
+  /* corresponding corners: polygon( TL, TR, BR, BL) */
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  /* The child elements will now use this parameter to align them selves */
+  position: relative;
 }
 
 .logo-box {
-    position: absolute;
-    /* Will be positioned 40px from top and left based on the parent element of header. This is because the header has a position attribute set to relative */
-    top: 40px;
-    left: 40px;
+  position: absolute;
+  /* Will be positioned 40px from top and left based on the parent element of header. This is because the header has a position attribute set to relative */
+  top: 40px;
+  left: 40px;
 }
 
 .logo {
-    height: 35px;
+  height: 35px;
 }
 
 .text-box {
-    position: absolute;
-    /* The percentages below are for  */
-    top: 40%;
-    left: 50%;
-    /* This will move the origin to the center of the element rather than default of top edge and the left edge */
-    transform: translate(-50%, -50%);
+  position: absolute;
+  /* The percentages below are for aligning the text to the middle of the screen */
+  top: 40%;
+  left: 50%;
+  /* This will move the origin to the center of the element rather than default of top edge and the left edge */
+  transform: translate(-50%, -50%);
+  text-align: center;
 }
 
 .heading-primary {
-    color: white;
-    text-transform: uppercase;
+  color: white;
+  text-transform: uppercase;
+  /* Sometimes when the animations play, it can be a bit shakey. Setting this property fixes it */
+  backface-visibility: hidden;
+  margin-bottom: 60px;
 }
 
 .heading-primary-main {
-    display: block;
-    font-size: 60px;
-    font-weight: 400;
-    letter-spacing: 35px;
+  /* Displays an element as a block element (like <p>). It starts on a new line, and takes up the whole width */
+  display: block;
+  font-size: 60px;
+  font-weight: 400;
+  letter-spacing: 35px;
+  animation: moveInLeft 1s ease-out;
 }
 
 .heading-primary-sub {
-    display: block;
-    font-size: 20px;
-    font-weight: 700;
-    letter-spacing: 17.4px;
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 17.4px;
+  animation: moveInRight 1s ease-out;
+}
+
+/* This is how to add animations */
+
+/* For the performance sakes, it is best to animate just one or two things
+ */
+
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  50% {
+    opacity: 0.5;
+  }
+  80% {
+    opacity: 0.5;
+    transform: translateX(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  50% {
+    opacity: 0.5;
+  }
+  80% {
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* 
+The link here is a pseudo class 
+https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes
+
+link - How the link should appear
+visited - How the link should appear after the user has clicked on it. By default, the browsers will change the color of the link to indicate the user has visited this before. In this application, we want the link to look exactly the same even after it has been visited
+*/
+.btn:link,
+.btn:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  /* Just 2 numbers will mean top and bottom will be same, left right will be same
+   */
+  padding: 15px 40px;
+  /* inline-block prevents the btn from overlapping on the previous element */
+  display: inline-block;
+  border-radius: 100px;
+  /* All the transformations will now take 0.2s to complete. Without this, all the animations will look jittery */
+  transition: all 0.2s;
+}
+
+.btn-white {
+  background-color: white;
+  color: #777;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  /* 
+  0 - Just in the epsilon or y axis
+  10px - The shadow will be 10 px down
+  20px - The blur we will see
+  */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Active is for when you click on the element */
+.btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
