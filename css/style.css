@@ -137,6 +137,23 @@ body {
   }
 }
 
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  50% {
+    opacity: 0.5;
+  }
+  /* 80% {
+    transform: translateX(-20px);
+  } */
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* 
 The link here is a pseudo class 
 https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes
@@ -204,4 +221,10 @@ visited - How the link should appear after the user has clicked on it. By defaul
   transform: scaleX(1.4) scaleY(1.6);
   /* background: #000; */
   opacity: 0;
+}
+
+.btn-animated {
+  animation: moveInBottom 0.5s ease-out 0.75s;
+  /* backwards - This will ensure that all the other CSS is applied before starting the animation,i.e, apply all the styles at 0% and then display the element by playing the animation with the  */
+  animation-fill-mode: backwards;
 }
