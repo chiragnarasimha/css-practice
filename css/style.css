@@ -13,7 +13,13 @@ Dark green: #28b485
   /* By default, the browser will add some padding and margins to the page. The code below will prevent that from happening */
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: inherit;
+}
+/* This is how we can modify the root properties. These are the new values that will be used when using rem as the unit */
+html {
+  /* Setting the root font-size to 10, just to make it easier for future calculations */
+  /* By default, most of the browsers will use a font size of 16. To convert 16 to 10, 10/16 * 100 = 62.5%  */
+  font-size: 62.5%;
 }
 
 /* In this page, everything is container within the body. This is the style that will be applied by default. */
@@ -25,7 +31,8 @@ body {
   line-height: 1.7;
   color: #777;
   /* The body c */
-  padding: 30px;
+  padding: 4rem;
+  box-sizing: border-box;
 }
 
 /* . is used to select the custom classes */
@@ -54,12 +61,12 @@ body {
 .logo-box {
   position: absolute;
   /* Will be positioned 40px from top and left based on the parent element of header. This is because the header has a position attribute set to relative */
-  top: 40px;
-  left: 40px;
+  top: 4rem;
+  left: 4rem;
 }
 
 .logo {
-  height: 35px;
+  height: 3.5rem;
 }
 
 .text-box {
@@ -77,23 +84,23 @@ body {
   text-transform: uppercase;
   /* Sometimes when the animations play, it can be a bit shakey. Setting this property fixes it */
   backface-visibility: hidden;
-  margin-bottom: 60px;
+  margin-bottom: 6rem;
 }
 
 .heading-primary-main {
   /* Displays an element as a block element (like <p>). It starts on a new line, and takes up the whole width */
   display: block;
-  font-size: 60px;
+  font-size: 6rem;
   font-weight: 400;
-  letter-spacing: 35px;
+  letter-spacing: 3.5rem;
   animation: moveInLeft 1s ease-out;
 }
 
 .heading-primary-sub {
   display: block;
-  font-size: 20px;
+  font-size: 2rem;
   font-weight: 700;
-  letter-spacing: 17.4px;
+  letter-spacing: 1.75rem;
   animation: moveInRight 1s ease-out;
 }
 
@@ -105,14 +112,14 @@ body {
 @keyframes moveInLeft {
   0% {
     opacity: 0;
-    transform: translateX(-100px);
+    transform: translateX(-10rem);
   }
   50% {
     opacity: 0.5;
   }
   80% {
     opacity: 0.5;
-    transform: translateX(20px);
+    transform: translateX(2rem);
   }
   100% {
     opacity: 1;
@@ -123,13 +130,13 @@ body {
 @keyframes moveInRight {
   0% {
     opacity: 0;
-    transform: translateX(100px);
+    transform: translateX(10rem);
   }
   50% {
     opacity: 0.5;
   }
   80% {
-    transform: translateX(-20px);
+    transform: translateX(-2rem);
   }
   100% {
     opacity: 1;
@@ -140,7 +147,7 @@ body {
 @keyframes moveInBottom {
   0% {
     opacity: 0;
-    transform: translateY(50px);
+    transform: translateY(3rem);
   }
   50% {
     opacity: 0.5;
@@ -167,14 +174,15 @@ visited - How the link should appear after the user has clicked on it. By defaul
   text-decoration: none;
   /* Just 2 numbers will mean top and bottom will be same, left right will be same
    */
-  padding: 15px 40px;
+  padding: 1.5rem 4rem;
   /* inline-block prevents the btn from overlapping on the previous element */
   display: inline-block;
-  border-radius: 100px;
+  border-radius: 10rem;
   /* All the transformations will now take 0.2s to complete. Without this, all the animations will look jittery */
   transition: all 0.2s;
   /*  In this case, the after pseudo class will use this to align itself. */
   position: relative;
+  font-size: 1.6rem;
 }
 
 .btn-white {
@@ -189,13 +197,13 @@ visited - How the link should appear after the user has clicked on it. By defaul
   10px - The shadow will be 10 px down
   20px - The blur we will see
   */
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
 }
 
 /* Active is for when you click on the element */
 .btn:active {
   transform: translateY(-1px);
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
 }
 .btn::after {
   /* For the after psuedo element to appear, we need to specify the content. Doesnt matter even if it is empty. We need to specify it
@@ -205,7 +213,7 @@ visited - How the link should appear after the user has clicked on it. By defaul
   display: inline-block;
   height: 100%;
   width: 100%;
-  border-radius: 100px;
+  border-radius: 10rem;
   position: absolute;
   top: 0;
   left: 0;
