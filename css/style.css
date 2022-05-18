@@ -156,6 +156,8 @@ visited - How the link should appear after the user has clicked on it. By defaul
   border-radius: 100px;
   /* All the transformations will now take 0.2s to complete. Without this, all the animations will look jittery */
   transition: all 0.2s;
+  /*  In this case, the after pseudo class will use this to align itself. */
+  position: relative;
 }
 
 .btn-white {
@@ -177,4 +179,29 @@ visited - How the link should appear after the user has clicked on it. By defaul
 .btn:active {
   transform: translateY(-1px);
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+.btn::after {
+  /* For the after psuedo element to appear, we need to specify the content. Doesnt matter even if it is empty. We need to specify it
+   */
+
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all 0.4s;
+}
+
+.btn-white::after {
+  background-color: #fff;
+}
+
+.btn:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  /* background: #000; */
+  opacity: 0;
 }
