@@ -7,14 +7,21 @@ Dark green: #28b485
 
 Note: It is actually better to use rem as the unit of choice. This is because if the font size of the page changes, then all the other elements will scale nicely with this. This way, if the user zooms into the page, the elements will still maintain similar aspect ratios
 
+Generally, it is not advised to use em's. This is because, it will take a lot of calculations to get  the units right. ems will depend on the size of the parent element
+
 */
 
 /* This is how to declare a universal selector */
 
-* {
+/* We also want to make sure that the after and before pseudo elements also have the same behaviors */
+*,
+*::after,
+*::before {
   /* By default, the browser will add some padding and margins to the page. The code below will prevent that from happening */
   margin: 0;
   padding: 0;
+
+  /* We are telling if nothing is defined, by default all the elements should inherit the properties for the box sizing */
   box-sizing: inherit;
 }
 /* This is how we can modify the root properties. These are the new values that will be used when using rem as the unit */
@@ -60,18 +67,18 @@ body {
   position: relative;
 }
 
-.logo-box {
+.header__logo-box {
   position: absolute;
   /* Will be positioned 40px from top and left based on the parent element of header. This is because the header has a position attribute set to relative */
   top: 4rem;
   left: 4rem;
 }
 
-.logo {
+.header__logo {
   height: 3.5rem;
 }
 
-.text-box {
+.header__text-box {
   position: absolute;
   /* The percentages below are for aligning the text to the middle of the screen */
   top: 40%;
@@ -89,7 +96,7 @@ body {
   margin-bottom: 6rem;
 }
 
-.heading-primary-main {
+.heading-primary--main {
   /* Displays an element as a block element (like <p>). It starts on a new line, and takes up the whole width */
   display: block;
   font-size: 6rem;
@@ -98,7 +105,7 @@ body {
   animation: moveInLeft 1s ease-out;
 }
 
-.heading-primary-sub {
+.heading-primary--sub {
   display: block;
   font-size: 2rem;
   font-weight: 700;
@@ -154,9 +161,7 @@ body {
   50% {
     opacity: 0.5;
   }
-  /* 80% {
-    transform: translateX(-20px);
-  } */
+
   100% {
     opacity: 1;
     transform: translateY(0);
@@ -187,13 +192,13 @@ visited - How the link should appear after the user has clicked on it. By defaul
   font-size: 1.6rem;
 }
 
-.btn-white {
+.btn--white {
   background-color: white;
   color: #777;
 }
 
 .btn:hover {
-  transform: translateY(-3px);
+  transform: translateY(-0.3rem);
   /* 
   0 - Just in the epsilon or y axis
   10px - The shadow will be 10 px down
@@ -223,7 +228,7 @@ visited - How the link should appear after the user has clicked on it. By defaul
   transition: all 0.4s;
 }
 
-.btn-white::after {
+.btn--white::after {
   background-color: #fff;
 }
 
@@ -233,7 +238,7 @@ visited - How the link should appear after the user has clicked on it. By defaul
   opacity: 0;
 }
 
-.btn-animated {
+.btn--animated {
   animation: moveInBottom 0.5s ease-out 0.75s;
   /* backwards - This will ensure that all the other CSS is applied before starting the animation,i.e, apply all the styles at 0% and then display the element by playing the animation with the  */
   animation-fill-mode: backwards;

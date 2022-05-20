@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- This HTML is using the BEM model to organize all the elements -->
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -18,20 +19,20 @@
 
   <body>
     <header class="header">
-      <div class="logo-box">
+      <div class="header__logo-box">
         <!-- The alt attribute will allow for search engine optimization -->
-        <img src="img/logo-white.png" alt="Logo" class="logo" />
+        <img src="img/logo-white.png" alt="Logo" class="header__logo" />
       </div>
 
-      <div class="text-box">
+      <div class="header__text-box">
         <!-- NOTE: The heading is very important as it is read by google and indexed. Google will also use these headings to figure out what the webpage is all about  -->
         <h1 class="heading-primary">
           <!-- Span is just to span the same text on different lines -->
-          <span class="heading-primary-main">Outdoors</span>
-          <span class="heading-primary-sub">is where life happens</span>
+          <span class="heading-primary--main">Outdoors</span>
+          <span class="heading-primary--sub">is where life happens</span>
         </h1>
 
-        <a href="#" class="btn btn-white btn-animated">Discover our tours</a>
+        <a href="#" class="btn btn--white btn--animated">Discover our tours</a>
       </div>
     </header>
   </body>
