@@ -5,6 +5,8 @@ Light green: #7ed56f
 Medium green: #55c57a
 Dark green: #28b485
 
+Note: It is actually better to use rem as the unit of choice. This is because if the font size of the page changes, then all the other elements will scale nicely with this. This way, if the user zooms into the page, the elements will still maintain similar aspect ratios
+
 */
 
 /* This is how to declare a universal selector */
