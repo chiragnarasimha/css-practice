@@ -11,24 +11,33 @@ Generally, it is not advised to use em's. This is because, it will take a lot of
 Note: This SCSS file has been derived from ../css/style.css. ../css/style.css was converted into this SCSS file
 
 */
+
 /* This is how to declare a universal selector */
+
 /* We also want to make sure that the after and before pseudo elements also have the same behaviors */
+
+$color-primary: #55c57a;
+$color-primary-light: #7ed56f;
+$color-primary-dark: #28b485;
 *,
 *::after,
 *::before {
   /* By default, the browser will add some padding and margins to the page. The code below will prevent that from happening */
   margin: 0;
   padding: 0;
-  /* We are telling if nothing is defined, by default all the elements should inherit the properties for the box sizing */
-  box-sizing: inherit; }
 
+  /* We are telling if nothing is defined, by default all the elements should inherit the properties for the box sizing */
+  box-sizing: inherit;
+}
 /* This is how we can modify the root properties. These are the new values that will be used when using rem as the unit */
 html {
   /* Setting the root font-size to 10, just to make it easier for future calculations */
   /* By default, most of the browsers will use a font size of 16. To convert 16 to 10, 10/16 * 100 = 62.5%  */
-  font-size: 62.5%; }
+  font-size: 62.5%;
+}
 
 /* In this page, everything is container within the body. This is the style that will be applied by default. */
+
 body {
   font-family: "Lato", sans-serif;
   font-weight: 400;
@@ -37,14 +46,21 @@ body {
   color: #777;
   /* The body c */
   padding: 4rem;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+}
 
 /* . is used to select the custom classes */
+
 .header {
   /* vh - view port height. This will make it so that the height of the header will always be 95% of the viewport height */
   height: 95vh;
   /* using the comma separator, we can add multiple images. The first one will be the top most image */
-  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
+  background-image: linear-gradient(
+      to right bottom,
+      rgba($color-primary-light, 0.8),
+      rgba($color-primary-dark, 0.8)
+    ),
+    url(../img/hero.jpg);
   /* cover will try and fit the element into the viewport */
   background-size: cover;
   /* This will fix the top of the image in place, the rest of the image will crop to fit the viewport */
@@ -53,16 +69,19 @@ body {
   /* corresponding corners: polygon( TL, TR, BR, BL) */
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   /* The child elements will now use this parameter to align them selves */
-  position: relative; }
+  position: relative;
+}
 
 .header__logo-box {
   position: absolute;
   /* Will be positioned 40px from top and left based on the parent element of header. This is because the header has a position attribute set to relative */
   top: 4rem;
-  left: 4rem; }
+  left: 4rem;
+}
 
 .header__logo {
-  height: 3.5rem; }
+  height: 3.5rem;
+}
 
 .header__text-box {
   position: absolute;
@@ -71,14 +90,16 @@ body {
   left: 50%;
   /* This will move the origin to the center of the element rather than default of top edge and the left edge */
   transform: translate(-50%, -50%);
-  text-align: center; }
+  text-align: center;
+}
 
 .heading-primary {
   color: white;
   text-transform: uppercase;
   /* Sometimes when the animations play, it can be a bit shakey. Setting this property fixes it */
   backface-visibility: hidden;
-  margin-bottom: 6rem; }
+  margin-bottom: 6rem;
+}
 
 .heading-primary--main {
   /* Displays an element as a block element (like <p>). It starts on a new line, and takes up the whole width */
@@ -86,52 +107,71 @@ body {
   font-size: 6rem;
   font-weight: 400;
   letter-spacing: 3.5rem;
-  animation: moveInLeft 1s ease-out; }
+  animation: moveInLeft 1s ease-out;
+}
 
 .heading-primary--sub {
   display: block;
   font-size: 2rem;
   font-weight: 700;
   letter-spacing: 1.75rem;
-  animation: moveInRight 1s ease-out; }
+  animation: moveInRight 1s ease-out;
+}
 
 /* This is how to add animations */
+
 /* For the performance sakes, it is best to animate just one or two things
  */
+
 @keyframes moveInLeft {
   0% {
     opacity: 0;
-    transform: translateX(-10rem); }
+    transform: translateX(-10rem);
+  }
   50% {
-    opacity: 0.5; }
+    opacity: 0.5;
+  }
   80% {
     opacity: 0.5;
-    transform: translateX(2rem); }
+    transform: translateX(2rem);
+  }
   100% {
     opacity: 1;
-    transform: translateX(0); } }
+    transform: translateX(0);
+  }
+}
 
 @keyframes moveInRight {
   0% {
     opacity: 0;
-    transform: translateX(10rem); }
+    transform: translateX(10rem);
+  }
   50% {
-    opacity: 0.5; }
+    opacity: 0.5;
+  }
   80% {
-    transform: translateX(-2rem); }
+    transform: translateX(-2rem);
+  }
   100% {
     opacity: 1;
-    transform: translateX(0); } }
+    transform: translateX(0);
+  }
+}
 
 @keyframes moveInBottom {
   0% {
     opacity: 0;
-    transform: translateY(3rem); }
+    transform: translateY(3rem);
+  }
   50% {
-    opacity: 0.5; }
+    opacity: 0.5;
+  }
+
   100% {
     opacity: 1;
-    transform: translateY(0); } }
+    transform: translateY(0);
+  }
+}
 
 /* 
 The link here is a pseudo class 
@@ -154,11 +194,13 @@ visited - How the link should appear after the user has clicked on it. By defaul
   transition: all 0.2s;
   /*  In this case, the after pseudo class will use this to align itself. */
   position: relative;
-  font-size: 1.6rem; }
+  font-size: 1.6rem;
+}
 
 .btn--white {
   background-color: white;
-  color: #777; }
+  color: #777;
+}
 
 .btn:hover {
   transform: translateY(-0.3rem);
@@ -167,16 +209,18 @@ visited - How the link should appear after the user has clicked on it. By defaul
   10px - The shadow will be 10 px down
   20px - The blur we will see
   */
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+}
 
 /* Active is for when you click on the element */
 .btn:active {
   transform: translateY(-1px);
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); }
-
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+}
 .btn::after {
   /* For the after psuedo element to appear, we need to specify the content. Doesnt matter even if it is empty. We need to specify it
    */
+
   content: "";
   display: inline-block;
   height: 100%;
@@ -186,17 +230,21 @@ visited - How the link should appear after the user has clicked on it. By defaul
   top: 0;
   left: 0;
   z-index: -1;
-  transition: all 0.4s; }
+  transition: all 0.4s;
+}
 
 .btn--white::after {
-  background-color: #fff; }
+  background-color: #fff;
+}
 
 .btn:hover::after {
   transform: scaleX(1.4) scaleY(1.6);
   /* background: #000; */
-  opacity: 0; }
+  opacity: 0;
+}
 
 .btn--animated {
   animation: moveInBottom 0.5s ease-out 0.75s;
   /* backwards - This will ensure that all the other CSS is applied before starting the animation,i.e, apply all the styles at 0% and then display the element by playing the animation with the  */
-  animation-fill-mode: backwards; }
+  animation-fill-mode: backwards;
+}
