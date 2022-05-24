@@ -270,16 +270,24 @@ body {
   &--white {
     background-color: white;
     color: $color-grey-dark;
+    &::after {
+      background-color: $color-white;
+    }
   }
 
   &:hover {
     transform: translateY(-0.3rem);
+
     /**
       0 - Just in the epsilon or y axis
       10px - The shadow will be 10 px down
       20px - The blur we will see
     */
     box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+    &::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0;
+    }
   }
 
   /** 
@@ -304,15 +312,6 @@ body {
     left: 0;
     z-index: -1;
     transition: all 0.4s;
-  }
-
-  &--white::after {
-    background-color: $color-white;
-  }
-
-  &:hover::after {
-    transform: scaleX(1.4) scaleY(1.6);
-    opacity: 0;
   }
 
   &--animated {
