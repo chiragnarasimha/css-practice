@@ -54,15 +54,21 @@ body {
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   /* The child elements will now use this parameter to align them selves */
   position: relative; }
-
-.header__logo-box {
-  position: absolute;
-  /* Will be positioned 40px from top and left based on the parent element of header. This is because the header has a position attribute set to relative */
-  top: 4rem;
-  left: 4rem; }
-
-.header__logo {
-  height: 3.5rem; }
+  .header__logo-box {
+    position: absolute;
+    /* Will be positioned 40px from top and left based on the parent element of header. This is because the header has a position attribute set to relative */
+    top: 4rem;
+    left: 4rem; }
+  .header__logo {
+    height: 3.5rem; }
+  .header__text-box {
+    position: absolute;
+    /* The percentages below are for aligning the text to the middle of the screen */
+    top: 40%;
+    left: 50%;
+    /* This will move the origin to the center of the element rather than default of top edge and the left edge */
+    transform: translate(-50%, -50%);
+    text-align: center; }
 
 .header__text-box {
   position: absolute;

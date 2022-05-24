@@ -1,20 +1,25 @@
-/*
-COLORS:
-Light green: #7ed56f
-Primary Medium green: #55c57a
-Dark green: #28b485
+/**
 
-Note: It is actually better to use rem as the unit of choice. This is because if the font size of the page changes, then all the other elements will scale nicely with this. This way, if the user zooms into the page, the elements will still maintain similar aspect ratios
+  COLORS:
+  Light green: #7ed56f
+  Primary Medium green: #55c57a
+  Dark green: #28b485
 
-Generally, it is not advised to use em's. This is because, it will take a lot of calculations to get  the units right. ems will depend on the size of the parent element
+  Note: It is actually better to use rem as the unit of choice. This is because if the font size of the page changes, then all the other elements will scale nicely with this. This way, if the user zooms into the page, the elements will still maintain similar aspect ratios
 
-Note: This SCSS file has been derived from ../css/style.css. ../css/style.css was converted into this SCSS file
+  Generally, it is not advised to use em's. This is because, it will take a lot of calculations to get  the units right. ems will depend on the size of the parent element
+
+  Note: This SCSS file has been derived from ../css/style.css. ../css/style.css was converted into this SCSS file
 
 */
 
-/* This is how to declare a universal selector */
+/**
+ This is how to declare a universal selector 
+*/
 
-/* We also want to make sure that the after and before pseudo elements also have the same behaviors */
+/**
+  We also want to make sure that the after and before pseudo elements also have the same behaviors 
+*/
 
 $color-primary: #55c57a;
 $color-primary-light: #7ed56f;
@@ -27,21 +32,35 @@ $color-black: #000;
 *,
 *::after,
 *::before {
-  /* By default, the browser will add some padding and margins to the page. The code below will prevent that from happening */
+  /**
+    By default, the browser will add some padding and margins to the page. The code below will prevent that from happening 
+  */
   margin: 0;
   padding: 0;
 
-  /* We are telling if nothing is defined, by default all the elements should inherit the properties for the box sizing */
+  /**
+    We are telling if nothing is defined, by default all the elements should inherit the properties for the box sizing 
+  */
   box-sizing: inherit;
 }
-/* This is how we can modify the root properties. These are the new values that will be used when using rem as the unit */
+
+/**
+  This is how we can modify the root properties. These are the new values that will be used when using rem as the unit 
+*/
 html {
-  /* Setting the root font-size to 10, just to make it easier for future calculations */
-  /* By default, most of the browsers will use a font size of 16. To convert 16 to 10, 10/16 * 100 = 62.5%  */
+  /**
+    Setting the root font-size to 10, just to make it easier for future calculations 
+  */
+  /**
+    By default, most of the browsers will use a font size of 16. To convert 16 to 10, 10/16 * 100 = 62.5%  
+  */
+
   font-size: 62.5%;
 }
 
-/* In this page, everything is container within the body. This is the style that will be applied by default. */
+/**
+ In this page, everything is container within the body. This is the style that will be applied by default. 
+*/
 
 body {
   font-family: "Lato", sans-serif;
@@ -49,84 +68,121 @@ body {
   font-size: 16;
   line-height: 1.7;
   color: $color-grey-dark;
-  /* The body c */
+  /**
+    The body c 
+  */
   padding: 4rem;
   box-sizing: border-box;
 }
 
-/* . is used to select the custom classes */
+/**
+ . is used to select the custom classes 
+*/
 
 .header {
-  /* vh - view port height. This will make it so that the height of the header will always be 95% of the viewport height */
+  /**
+    vh - view port height. This will make it so that the height of the header will always be 95% of the viewport height 
+  */
   height: 95vh;
-  /* using the comma separator, we can add multiple images. The first one will be the top most image */
+
+  /**
+    using the comma separator, we can add multiple images. The first one will be the top most image 
+  */
   background-image: linear-gradient(
       to right bottom,
       rgba($color-primary-light, 0.8),
       rgba($color-primary-dark, 0.8)
     ),
     url(../img/hero.jpg);
-  /* cover will try and fit the element into the viewport */
+
+  /**
+    cover will try and fit the element into the viewport 
+  */
   background-size: cover;
-  /* This will fix the top of the image in place, the rest of the image will crop to fit the viewport */
+  /**
+    This will fix the top of the image in place, the rest of the image will crop to fit the viewport 
+  */
   background-position: top;
-  /* This will allow the header to be clipped based on the specified shape. Inside the polygon function, specify the area of the image that should still be visible */
-  /* corresponding corners: polygon( TL, TR, BR, BL) */
+  /**
+    This will allow the header to be clipped based on the specified shape. Inside the polygon function, specify the area of the image that should still be visible 
+  */
+  /**
+    corresponding corners: polygon( TL, TR, BR, BL) 
+  */
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-  /* The child elements will now use this parameter to align them selves */
+  /**
+    The child elements will now use this parameter to align them selves 
+  */
   position: relative;
-}
 
-.header__logo-box {
-  position: absolute;
-  /* Will be positioned 40px from top and left based on the parent element of header. This is because the header has a position attribute set to relative */
-  top: 4rem;
-  left: 4rem;
-}
+  /**
+    The & symbol will get translated to .header
+    For example &__logo-box is same as .header__logo-box
+  */
+  &__logo-box {
+    position: absolute;
+    /**
+      Will be positioned 40px from top and left based on the parent element of header. This is because the header has a position attribute set to relative 
+    */
+    top: 4rem;
+    left: 4rem;
+  }
 
-.header__logo {
-  height: 3.5rem;
-}
+  &__logo {
+    height: 3.5rem;
+  }
 
-.header__text-box {
-  position: absolute;
-  /* The percentages below are for aligning the text to the middle of the screen */
-  top: 40%;
-  left: 50%;
-  /* This will move the origin to the center of the element rather than default of top edge and the left edge */
-  transform: translate(-50%, -50%);
-  text-align: center;
+  &__text-box {
+    position: absolute;
+    /**
+      The percentages below are for aligning the text to the middle of the screen 
+    */
+    top: 40%;
+    left: 50%;
+    /**
+      This will move the origin to the center of the element rather than default of top edge and the left edge 
+    */
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
 }
 
 .heading-primary {
   color: $color-white;
   text-transform: uppercase;
-  /* Sometimes when the animations play, it can be a bit shakey. Setting this property fixes it */
+  /**
+    Sometimes when the animations play, it can be a bit shakey. Setting this property fixes it 
+  */
   backface-visibility: hidden;
   margin-bottom: 6rem;
+
+  &--main {
+    /**
+      Displays an element as a block element (like <p>). It starts on a new line, and takes up the whole width 
+    */
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    animation: moveInLeft 1s ease-out;
+  }
+
+  &--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.75rem;
+    animation: moveInRight 1s ease-out;
+  }
 }
 
-.heading-primary--main {
-  /* Displays an element as a block element (like <p>). It starts on a new line, and takes up the whole width */
-  display: block;
-  font-size: 6rem;
-  font-weight: 400;
-  letter-spacing: 3.5rem;
-  animation: moveInLeft 1s ease-out;
-}
+/**
+  This is how to add animations 
+*/
 
-.heading-primary--sub {
-  display: block;
-  font-size: 2rem;
-  font-weight: 700;
-  letter-spacing: 1.75rem;
-  animation: moveInRight 1s ease-out;
-}
-
-/* This is how to add animations */
-
-/* For the performance sakes, it is best to animate just one or two things
- */
+/**
+  For the performance sakes, it is best to animate just one or two things
+*/
 
 @keyframes moveInLeft {
   0% {
@@ -178,78 +234,92 @@ body {
   }
 }
 
-/* 
-The link here is a pseudo class 
-https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes
+/**
+  
+  The link here is a pseudo class 
+  https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes
 
-link - How the link should appear
-visited - How the link should appear after the user has clicked on it. By default, the browsers will change the color of the link to indicate the user has visited this before. In this application, we want the link to look exactly the same even after it has been visited
+  link - How the link should appear
+  visited - How the link should appear after the user has clicked on it. By default, the browsers will change the color of the link to indicate the user has visited this before. In this application, we want the link to look exactly the same even after it has been visited
 */
-.btn:link,
-.btn:visited {
-  text-transform: uppercase;
-  text-decoration: none;
-  /* Just 2 numbers will mean top and bottom will be same, left right will be same
-   */
-  padding: 1.5rem 4rem;
-  /* inline-block prevents the btn from overlapping on the previous element */
-  display: inline-block;
-  border-radius: 10rem;
-  /* All the transformations will now take 0.2s to complete. Without this, all the animations will look jittery */
-  transition: all 0.2s;
-  /*  In this case, the after pseudo class will use this to align itself. */
-  position: relative;
-  font-size: 1.6rem;
-}
+.btn {
+  &:link,
+  &:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    /**
+      Just 2 numbers will mean top and bottom will be same, left right will be same
+    */
+    padding: 1.5rem 4rem;
+    /**
+      inline-block prevents the btn from overlapping on the previous element 
+    */
+    display: inline-block;
+    border-radius: 10rem;
+    /**
+      All the transformations will now take 0.2s to complete. Without this, all the animations will look jittery 
+    */
+    transition: all 0.2s;
+    /**
+      In this case, the after pseudo class will use this to align itself. 
+    */
+    position: relative;
+    font-size: 1.6rem;
+  }
 
-.btn--white {
-  background-color: white;
-  color: $color-grey-dark;
-}
+  &--white {
+    background-color: white;
+    color: $color-grey-dark;
+  }
 
-.btn:hover {
-  transform: translateY(-0.3rem);
-  /* 
-  0 - Just in the epsilon or y axis
-  10px - The shadow will be 10 px down
-  20px - The blur we will see
+  &:hover {
+    transform: translateY(-0.3rem);
+    /**
+      0 - Just in the epsilon or y axis
+      10px - The shadow will be 10 px down
+      20px - The blur we will see
+    */
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+  }
+
+  /** 
+    Active is for when you click on the element 
   */
-  box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
-}
+  &:active {
+    transform: translateY(-1px);
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+  }
 
-/* Active is for when you click on the element */
-.btn:active {
-  transform: translateY(-1px);
-  box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
-}
-.btn::after {
-  /* For the after pseudo element to appear, we need to specify the content. Doesn't matter even if it is empty. We need to specify it
+  &::after {
+    /**
+      For the after pseudo element to appear, we need to specify the content. Doesn't matter even if it is empty. We need to specify it
    */
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 0.4s;
+  }
 
-  content: "";
-  display: inline-block;
-  height: 100%;
-  width: 100%;
-  border-radius: 10rem;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  transition: all 0.4s;
-}
+  &--white::after {
+    background-color: $color-white;
+  }
 
-.btn--white::after {
-  background-color: $color-white;
-}
+  &:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+  }
 
-.btn:hover::after {
-  transform: scaleX(1.4) scaleY(1.6);
-  /* background: #$color-black; */
-  opacity: 0;
-}
-
-.btn--animated {
-  animation: moveInBottom 0.5s ease-out 0.75s;
-  /* backwards - This will ensure that all the other CSS is applied before starting the animation,i.e, apply all the styles at 0% and then display the element by playing the animation with the  */
-  animation-fill-mode: backwards;
+  &--animated {
+    animation: moveInBottom 0.5s ease-out 0.75s;
+    /**
+      backwards - This will ensure that all the other CSS is applied before starting the animation,i.e, apply all the styles at 0% and then display the element by playing the animation with the  
+    */
+    animation-fill-mode: backwards;
+  }
 }
