@@ -74,7 +74,7 @@ body {
   text-align: center; }
 
 .heading-primary {
-  color: white;
+  color: #fff;
   text-transform: uppercase;
   /* Sometimes when the animations play, it can be a bit shakey. Setting this property fixes it */
   backface-visibility: hidden;
@@ -193,7 +193,7 @@ visited - How the link should appear after the user has clicked on it. By defaul
 
 .btn:hover::after {
   transform: scaleX(1.4) scaleY(1.6);
-  /* background: #000; */
+  /* background: #$color-black; */
   opacity: 0; }
 
 .btn--animated {
