@@ -2,7 +2,7 @@
 
   COLORS:
   Light green: #7ed56f
-  Primary Medium green: #55c57a
+  Primary green: #55c57a
   Dark green: #28b485
 
   Note: It is actually better to use rem as the unit of choice. This is because if the font size of the page changes, then all the other elements will scale nicely with this. This way, if the user zooms into the page, the elements will still maintain similar aspect ratios
@@ -11,16 +11,21 @@
 
   Note: This SCSS file has been derived from ../css/style.css. ../css/style.css was converted into this SCSS file
 
+  Note: This project is also using the 7-1 architecture pattern, where we have one main SASS file to import all the other SASS files
+
+  Note: SCSS and SASS extensions both use the same preprocessor. The main difference is that the syntax in SCSS is easier to read. SCSS with brackets, where as SASS files are more like python
+
 */
 
 /**
- This is how to declare a universal selector 
+  Note: We are not using base/_base.scss
+  SASS is smart enough to understand without us having to explicitly specify these values
 */
+@import "base/base";
 
 /**
-  We also want to make sure that the after and before pseudo elements also have the same behaviors 
+  Defining the colors that will be used in this file
 */
-
 $color-primary: #55c57a;
 $color-primary-light: #7ed56f;
 $color-primary-dark: #28b485;
@@ -29,6 +34,10 @@ $color-grey-dark: #777;
 $color-white: #fff;
 $color-black: #000;
 
+/**
+ This is how to declare a universal selector 
+ We also want to make sure that the after and before pseudo elements also have the same behaviors 
+*/
 *,
 *::after,
 *::before {
