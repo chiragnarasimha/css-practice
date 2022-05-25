@@ -1,3 +1,46 @@
 /**
     Note: This is a partial file. This is why it is following the _ naming convention at the start of the file
 */
+/**
+ This is how to declare a universal selector 
+ We also want to make sure that the after and before pseudo elements also have the same behaviors 
+*/
+*,
+*::after,
+*::before {
+  /**
+    By default, the browser will add some padding and margins to the page. The code below will prevent that from happening 
+  */
+  margin: 0;
+  padding: 0;
+
+  /**
+    We are telling if nothing is defined, by default all the elements should inherit the properties for the box sizing 
+  */
+  box-sizing: inherit;
+}
+
+/**
+  This is how we can modify the root properties. These are the new values that will be used when using rem as the unit 
+*/
+html {
+  /**
+    Setting the root font-size to 10, just to make it easier for future calculations 
+  */
+  /**
+    By default, most of the browsers will use a font size of 16. To convert 16 to 10, 10/16 * 100 = 62.5%  
+  */
+  /**
+    Note: Since we are changing the root font-size here, we could make the argument that this bit should be moved into typography. However, we are actually changing the overall setting. It makes more sense to keep this here for now. This setting is defining what 1REM is. 
+  */
+
+  font-size: 62.5%;
+}
+
+/**
+ In this page, everything is container within the body. This is the style that will be applied by default. 
+*/
+
+body {
+  box-sizing: border-box;
+}

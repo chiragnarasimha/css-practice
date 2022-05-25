@@ -1,0 +1,74 @@
+/**
+ . is used to select the custom classes 
+*/
+.header {
+  /**
+        Header can be considered a component or a layout. It can be considered layout because every page will contain a header. So in other words, the layout of every page will contain a header. 
+    */
+
+  /**
+    vh - view port height. This will make it so that the height of the header will always be 95% of the viewport height 
+  */
+  height: 95vh;
+
+  /**
+    using the comma separator, we can add multiple images. The first one will be the top most image 
+  */
+  background-image: linear-gradient(
+      to right bottom,
+      rgba($color-primary-light, 0.8),
+      rgba($color-primary-dark, 0.8)
+    ),
+    url(../img/hero.jpg);
+
+  /**
+    cover will try and fit the element into the viewport 
+  */
+  background-size: cover;
+  /**
+    This will fix the top of the image in place, the rest of the image will crop to fit the viewport 
+  */
+  background-position: top;
+  /**
+    This will allow the header to be clipped based on the specified shape. Inside the polygon function, specify the area of the image that should still be visible 
+  */
+  /**
+    corresponding corners: polygon( TL, TR, BR, BL) 
+  */
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  /**
+    The child elements will now use this parameter to align them selves 
+  */
+  position: relative;
+
+  /**
+    The & symbol will get translated to .header
+    For example &__logo-box is same as .header__logo-box
+  */
+  &__logo-box {
+    position: absolute;
+    /**
+      Will be positioned 40px from top and left based on the parent element of header. This is because the header has a position attribute set to relative 
+    */
+    top: 4rem;
+    left: 4rem;
+  }
+
+  &__logo {
+    height: 3.5rem;
+  }
+
+  &__text-box {
+    position: absolute;
+    /**
+      The percentages below are for aligning the text to the middle of the screen 
+    */
+    top: 40%;
+    left: 50%;
+    /**
+      This will move the origin to the center of the element rather than default of top edge and the left edge 
+    */
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+}
