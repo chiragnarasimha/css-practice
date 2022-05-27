@@ -20,7 +20,24 @@
   SASS is smart enough to understand without us having to explicitly specify these values
 */
 /**
+    When we use the float layout, it will force the elements to have 0 height. This is not a desirable behavior. This is because it will also not take into consideration the specified margins.
+
+    clearfix will attempt to fix this issue. https://www.w3schools.com/howto/howto_css_clearfix.asp
+    
+    TLDR -> Clear fix will append a pseudo element. This pseudo element will then clear the floats. This workaround will then respect the margins specified
+*/
+/**
   Defining the colors that will be used in this file
+*/
+/**
+  114 rem is like a standard width used for a row
+  We use the max-width as this makes it easier to organize elements. Using the max-width will mean that we do not need to worry to much about how things will look on higher resolution displays
+*/
+/**
+  This is the space between the rows
+*/
+/**
+  This is the space in between the columns
 */
 /**
   This is how to add animations
@@ -209,6 +226,54 @@ body {
       backwards - This will ensure that all the other CSS is applied before starting the animation,i.e, apply all the styles at 0% and then display the element by playing the animation with the  
     */
     animation-fill-mode: backwards; }
+
+/**
+    This will define all the grid like structures that will be used in the project
+*/
+.row {
+  max-width: 114rem;
+  background-color: #eee;
+  /**
+        We are saying that the margin on top and bottom is 0. The margins left and right is auto
+        What this means is that CSS will automatically try to center the element
+    */
+  margin: 0 auto;
+  /**
+        We just want to make sure that there is no margin on the last row
+    */
+  /**
+        Select based on partial class names.
+        Here we are selecting all the classes that will start off with col-
+
+        ^= Any class that starts with the specified name
+        *= Any class that contains the specified name
+        $= Any class that ends with the specified name
+    */ }
+  .row:not(:last-child) {
+    margin-bottom: 8rem; }
+  .row::after {
+    /**
+            It is important to specify some content. Even if its empty. if not, the element will not be displayed on the screen.
+        */
+    content: "";
+    /**
+            display: table; is just a standard version of the clearfix. This is what everyone uses generally speaking
+            
+        */
+    display: table;
+    /**
+            This is the actual code that will clear the floats thats been applied to the elements
+        */
+    clear: both; }
+  .row [class^="col-"] {
+    background-color: orangered;
+    float: left; }
+    .row [class^="col-"]:not(:last-child) {
+      margin-right: 6rem; }
+  .row .col-1-of-2 {
+    width: calc((100% - 6rem) / 2); }
+  .row .col-1-of-3 {
+    width: calc((100% - (2 *6rem)) / 3); }
 
 /**
  . is used to select the custom classes 

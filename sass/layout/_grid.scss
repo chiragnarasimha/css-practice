@@ -1,0 +1,41 @@
+/**
+    This will define all the grid like structures that will be used in the project
+*/
+
+.row {
+    max-width: $grid-width;
+    background-color: #eee;
+    /**
+        We are saying that the margin on top and bottom is 0. The margins left and right is auto
+        What this means is that CSS will automatically try to center the element
+    */
+    margin: 0 auto;
+    /**
+        We just want to make sure that there is no margin on the last row
+    */
+    &:not(:last-child) {
+        margin-bottom: $gutter-vertical;
+    }
+    @include clearfix;
+    /**
+        Select based on partial class names.
+        Here we are selecting all the classes that will start off with col-
+
+        ^= Any class that starts with the specified name
+        *= Any class that contains the specified name
+        $= Any class that ends with the specified name
+    */
+    [class^="col-"] {
+        background-color: orangered;
+        float: left;
+        &:not(:last-child) {
+            margin-right: $gutter-horizontal;
+        }
+    }
+    .col-1-of-2 {
+        width: calc((100% - #{$gutter-horizontal}) / 2);
+    }
+    .col-1-of-3 {
+        width: calc((100% - (2 *#{$gutter-horizontal})) / 3);
+    }
+}
