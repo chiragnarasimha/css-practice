@@ -3,14 +3,10 @@
 */
 .header {
   /**
-        Header can be considered a component or a layout. It can be considered layout because every page will contain a header. So in other words, the layout of every page will contain a header. 
-    */
-
-  /**
+    Header can be considered a component or a layout. It can be considered layout because every page will contain a header. So in other words, the layout of every page will contain a header. 
     vh - view port height. This will make it so that the height of the header will always be 95% of the viewport height 
   */
   height: 95vh;
-
   /**
     using the comma separator, we can add multiple images. The first one will be the top most image 
   */
@@ -20,7 +16,6 @@
       rgba($color-primary-dark, 0.8)
     ),
     url(../img/hero.jpg);
-
   /**
     cover will try and fit the element into the viewport 
   */
@@ -31,8 +26,6 @@
   background-position: top;
   /**
     This will allow the header to be clipped based on the specified shape. Inside the polygon function, specify the area of the image that should still be visible 
-  */
-  /**
     corresponding corners: polygon( TL, TR, BR, BL) 
   */
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
@@ -40,7 +33,6 @@
     The child elements will now use this parameter to align them selves 
   */
   position: relative;
-
   /**
     The & symbol will get translated to .header
     For example &__logo-box is same as .header__logo-box
@@ -53,11 +45,9 @@
     top: 4rem;
     left: 4rem;
   }
-
   &__logo {
     height: 3.5rem;
   }
-
   &__text-box {
     position: absolute;
     /**

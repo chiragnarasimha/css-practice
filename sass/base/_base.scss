@@ -1,9 +1,9 @@
 /**
-    Note: This is a partial file. This is why it is following the _ naming convention at the start of the file
+  Note: This is a partial file. This is why it is following the _ naming convention at the start of the file
 */
 /**
- This is how to declare a universal selector 
- We also want to make sure that the after and before pseudo elements also have the same behaviors 
+  This is how to declare a universal selector 
+  We also want to make sure that the after and before pseudo elements also have the same behaviors 
 */
 *,
 *::after,
@@ -33,14 +33,12 @@ html {
   /**
     Note: Since we are changing the root font-size here, we could make the argument that this bit should be moved into typography. However, we are actually changing the overall setting. It makes more sense to keep this here for now. This setting is defining what 1REM is. 
   */
-
   font-size: 62.5%;
 }
 
 /**
  In this page, everything is container within the body. This is the style that will be applied by default. 
 */
-
 body {
   box-sizing: border-box;
 }

@@ -2,24 +2,23 @@
     When we use the float layout, it will force the elements to have 0 height. This is not a desirable behavior. This is because it will also not take into consideration the specified margins.
 
     clearfix will attempt to fix this issue. https://www.w3schools.com/howto/howto_css_clearfix.asp
-    
+
     TLDR -> Clear fix will append a pseudo element. This pseudo element will then clear the floats. This workaround will then respect the margins specified
 */
 
 @mixin clearfix {
-    &::after {
-        /**
-            It is important to specify some content. Even if its empty. if not, the element will not be displayed on the screen.
-        */
-        content: "";
-        /**
-            display: table; is just a standard version of the clearfix. This is what everyone uses generally speaking
-            
-        */
-        display: table;
-        /**
-            This is the actual code that will clear the floats thats been applied to the elements
-        */
-        clear: both;
-    }
+  &::after {
+    /**
+        It is important to specify some content. Even if its empty. if not, the element will not be displayed on the screen.
+    */
+    content: "";
+    /**
+        display: table; is just a standard version of the clearfix. This is what everyone uses generally speaking
+    */
+    display: table;
+    /**
+        This is the actual code that will clear the floats thats been applied to the elements
+    */
+    clear: both;
+  }
 }

@@ -1,18 +1,18 @@
 .heading-primary {
   /**
-        heading-primary can again be considered component or a typography. It makes more sense to put it in typography as this bit of code is dealing with how the text is displayed. 
-    */
+    heading-primary can again be considered component or a typography. It makes more sense to put it in typography as this bit of code is dealing with how the text is displayed. 
+  */
   color: $color-white;
   text-transform: uppercase;
   /**
-        Sometimes when the animations play, it can be a bit shaky. Setting this property fixes it 
-    */
+    Sometimes when the animations play, it can be a bit shaky. Setting this property fixes it 
+  */
   backface-visibility: hidden;
   margin-bottom: 6rem;
 
   &--main {
     /**
-        Displays an element as a block element (like <p>). It starts on a new line, and takes up the whole width 
+      Displays an element as a block element (like <p>). It starts on a new line, and takes up the whole width 
     */
     display: block;
     font-size: 6rem;
