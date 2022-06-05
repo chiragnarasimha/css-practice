@@ -260,7 +260,6 @@ body {
 */
 .row {
   max-width: 114rem;
-  background-color: #eee;
   /**
     We are saying that the margin on top and bottom is 0. The margins left and right is auto
     What this means is that CSS will automatically try to center the element
@@ -293,7 +292,6 @@ body {
     */
     clear: both; }
   .row [class^="col-"] {
-    background-color: orangered;
     float: left; }
     .row [class^="col-"]:not(:last-child) {
       margin-right: 6rem; }

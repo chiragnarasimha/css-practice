@@ -4,7 +4,7 @@
 
 .row {
   max-width: $grid-width;
-  background-color: #eee;
+
   /**
     We are saying that the margin on top and bottom is 0. The margins left and right is auto
     What this means is that CSS will automatically try to center the element
@@ -26,7 +26,6 @@
     $= Any class that ends with the specified name
   */
   [class^="col-"] {
-    background-color: orangered;
     float: left;
     &:not(:last-child) {
       margin-right: $gutter-horizontal;
