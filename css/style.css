@@ -23,11 +23,8 @@
     When we use the float layout, it will force the elements to have 0 height. This is not a desirable behavior. This is because it will also not take into consideration the specified margins.
 
     clearfix will attempt to fix this issue. https://www.w3schools.com/howto/howto_css_clearfix.asp
-    
+
     TLDR -> Clear fix will append a pseudo element. This pseudo element will then clear the floats. This workaround will then respect the margins specified
-*/
-/**
-  Defining the colors that will be used in this file
 */
 /**
   114 rem is like a standard width used for a row
@@ -79,11 +76,11 @@
     transform: translateY(0); } }
 
 /**
-    Note: This is a partial file. This is why it is following the _ naming convention at the start of the file
+  Note: This is a partial file. This is why it is following the _ naming convention at the start of the file
 */
 /**
- This is how to declare a universal selector 
- We also want to make sure that the after and before pseudo elements also have the same behaviors 
+  This is how to declare a universal selector 
+  We also want to make sure that the after and before pseudo elements also have the same behaviors 
 */
 *,
 *::after,
@@ -121,18 +118,18 @@ body {
 
 .heading-primary {
   /**
-        heading-primary can again be considered component or a typography. It makes more sense to put it in typography as this bit of code is dealing with how the text is displayed. 
-    */
+    heading-primary can again be considered component or a typography. It makes more sense to put it in typography as this bit of code is dealing with how the text is displayed. 
+  */
   color: #fff;
   text-transform: uppercase;
   /**
-        Sometimes when the animations play, it can be a bit shaky. Setting this property fixes it 
-    */
+    Sometimes when the animations play, it can be a bit shaky. Setting this property fixes it 
+  */
   backface-visibility: hidden;
   margin-bottom: 6rem; }
   .heading-primary--main {
     /**
-        Displays an element as a block element (like <p>). It starts on a new line, and takes up the whole width 
+      Displays an element as a block element (like <p>). It starts on a new line, and takes up the whole width 
     */
     display: block;
     font-size: 6rem;
@@ -153,6 +150,12 @@ body {
   line-height: 1.7;
   color: #777;
   padding: 4rem; }
+
+.heading-secondary {
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  background-image: linear-gradient(to right, #7ed56f, #28b485); }
 
 /**
   
@@ -209,7 +212,7 @@ body {
   .btn::after {
     /**
       For the after pseudo element to appear, we need to specify the content. Doesn't matter even if it is empty. We need to specify it
-   */
+    */
     content: "";
     display: inline-block;
     height: 100%;
@@ -228,42 +231,41 @@ body {
     animation-fill-mode: backwards; }
 
 /**
-    This will define all the grid like structures that will be used in the project
+  This will define all the grid like structures that will be used in the project
 */
 .row {
   max-width: 114rem;
   background-color: #eee;
   /**
-        We are saying that the margin on top and bottom is 0. The margins left and right is auto
-        What this means is that CSS will automatically try to center the element
-    */
+    We are saying that the margin on top and bottom is 0. The margins left and right is auto
+    What this means is that CSS will automatically try to center the element
+  */
   margin: 0 auto;
   /**
-        We just want to make sure that there is no margin on the last row
-    */
+    We just want to make sure that there is no margin on the last row
+  */
   /**
-        Select based on partial class names.
-        Here we are selecting all the classes that will start off with col-
+    Select based on partial class names.
+    Here we are selecting all the classes that will start off with col-
 
-        ^= Any class that starts with the specified name
-        *= Any class that contains the specified name
-        $= Any class that ends with the specified name
-    */ }
+    ^= Any class that starts with the specified name
+    *= Any class that contains the specified name
+    $= Any class that ends with the specified name
+  */ }
   .row:not(:last-child) {
     margin-bottom: 8rem; }
   .row::after {
     /**
-            It is important to specify some content. Even if its empty. if not, the element will not be displayed on the screen.
-        */
+        It is important to specify some content. Even if its empty. if not, the element will not be displayed on the screen.
+    */
     content: "";
     /**
-            display: table; is just a standard version of the clearfix. This is what everyone uses generally speaking
-            
-        */
+        display: table; is just a standard version of the clearfix. This is what everyone uses generally speaking
+    */
     display: table;
     /**
-            This is the actual code that will clear the floats thats been applied to the elements
-        */
+        This is the actual code that will clear the floats thats been applied to the elements
+    */
     clear: both; }
   .row [class^="col-"] {
     background-color: orangered;
@@ -280,9 +282,7 @@ body {
 */
 .header {
   /**
-        Header can be considered a component or a layout. It can be considered layout because every page will contain a header. So in other words, the layout of every page will contain a header. 
-    */
-  /**
+    Header can be considered a component or a layout. It can be considered layout because every page will contain a header. So in other words, the layout of every page will contain a header. 
     vh - view port height. This will make it so that the height of the header will always be 95% of the viewport height 
   */
   height: 95vh;
@@ -300,8 +300,6 @@ body {
   background-position: top;
   /**
     This will allow the header to be clipped based on the specified shape. Inside the polygon function, specify the area of the image that should still be visible 
-  */
-  /**
     corresponding corners: polygon( TL, TR, BR, BL) 
   */
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
@@ -334,3 +332,11 @@ body {
     */
     transform: translate(-50%, -50%);
     text-align: center; }
+
+/**
+    This file will contain the styles that are specific to the home page only
+*/
+.section-about {
+  background-color: #f7f7f7;
+  padding: 25rem 0;
+  margin-top: -20vh; }
