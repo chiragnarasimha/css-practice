@@ -1,0 +1,50 @@
+/**
+    This file will contain the styling for the photos used in the EXCITING TOURS FOR ADVENTUROUS PEOPLE section
+*/
+
+.composition {
+  position: relative;
+  &__photo {
+    width: 55%;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, 0.4);
+    border-radius: 1rem;
+    /**
+        As soon as we set the position to absolute on an element, these elements wll be placed according to a reference and the reference is the first parent that it encounters
+    */
+    position: absolute;
+    transition: all 0.2s;
+
+    &--p1 {
+      left: 0;
+      top: -2rem;
+    }
+    &--p2 {
+      right: 0;
+      top: 2rem;
+    }
+    &--p3 {
+      left: 20%;
+      top: 10rem;
+    }
+    &:hover {
+      transform: scale(1.05) translateY(-0.5rem);
+      box-shadow: 0 2.5 6rem rgba($color: $color-black, $alpha: 0.6);
+      z-index: 10;
+
+      /**
+          Adding the frame to the image
+      */
+
+      outline: 1.5rem solid $color-primary;
+      outline-offset: 2rem;
+      //   outline: ;
+    }
+  }
+
+  /**
+      When we hover on composition and then on a composition photo, select all the children that are not directly under the mouse
+  */
+  &:hover &__photo:not(:hover) {
+    transform: scale(0.9);
+  }
+}
