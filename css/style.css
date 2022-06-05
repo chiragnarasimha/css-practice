@@ -179,11 +179,27 @@ body {
     transform: skewY(2deg) skewX(15deg) scale(1.1);
     text-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.2); }
 
+.heading-tertiary {
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-transform: uppercase; }
+
+.paragraph {
+  font-size: 1.6rem;
+  /**
+    As the name suggests, we want to apply this style to everything except the last paragraph
+  */ }
+  .paragraph:not(:last-child) {
+    margin-bottom: 3rem; }
+
 .u-center-text {
   text-align: center; }
 
-.u-margin-bottom-8 {
+.u-margin-bottom-big {
   margin-bottom: 8rem; }
+
+.u-margin-bottom-small {
+  margin-bottom: 2rem; }
 
 /**
   
@@ -257,6 +273,13 @@ body {
       backwards - This will ensure that all the other CSS is applied before starting the animation,i.e, apply all the styles at 0% and then display the element by playing the animation with the  
     */
     animation-fill-mode: backwards; }
+
+.btn-text:link, .btn-text:visited {
+  color: #55c57a;
+  display: inline-block;
+  text-decoration: none;
+  border-bottom: 0.1rem solid #55c57a;
+  font-size: 1.6rem; }
 
 /**
   This will define all the grid like structures that will be used in the project

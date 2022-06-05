@@ -73,3 +73,20 @@ body {
     text-shadow: 0.5rem 1rem 2rem rgba($color-black, 0.2);
   }
 }
+
+.heading-tertiary {
+  font-size: $default-font-size;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.paragraph {
+  font-size: $default-font-size;
+
+  /**
+    As the name suggests, we want to apply this style to everything except the last paragraph
+  */
+  &:not(:last-child) {
+    margin-bottom: 3rem;
+  }
+}
