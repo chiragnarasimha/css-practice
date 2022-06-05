@@ -156,13 +156,20 @@ body {
   text-transform: uppercase;
   font-weight: 700;
   /**
+    Without displaying as the inline block, then text styling will span across the entire width of the page
+  */
+  display: inline-block;
+  /**
     Applying the nice gradient color to the text
   */
   background-image: linear-gradient(to right, #7ed56f, #28b485);
   /**
-    Without displaying as the inline block, then text styling will span across the entire width of the page
+    This will make it so that the background (which is the linear gradient) is applied only to the back of the text.
+
+    Combine this effect and color: transparent to add the nice gradient to the Text
   */
-  display: inline-block; }
+  -webkit-background-clip: text;
+  color: transparent; }
 
 /**
   
