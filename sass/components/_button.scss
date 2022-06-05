@@ -83,6 +83,7 @@
 }
 
 .btn-text {
+  transition: all 0.2s;
   &:link,
   &:visited {
     color: $color-primary;
@@ -92,8 +93,14 @@
     font-size: $default-font-size;
   }
 
-  &.hover {
+  &:hover {
+    background-color: $color-primary;
+    color: $color-white;
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.15);
+    transform: translateY(-2px);
   }
   &:active {
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.15);
+    transform: translateY(0px);
   }
 }
