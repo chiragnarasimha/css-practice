@@ -6,3 +6,6 @@ This repo is to learn CSS
 
 Clipy -> https://bennettfeely.com/clippy/
 Create custom css shapes to be allied to an image
+
+linea -> https://linea.io/
+Get free icons
