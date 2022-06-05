@@ -43,9 +43,16 @@ body {
   font-size: 3.5rem;
   text-transform: uppercase;
   font-weight: 700;
+  /**
+    Applying the nice gradient color to the text
+  */
   background-image: linear-gradient(
     to right,
     $color-primary-light,
     $color-primary-dark
   );
+  /**
+    Without displaying as the inline block, then text styling will span across the entire width of the page
+  */
+  display: inline-block;
 }
