@@ -201,6 +201,9 @@ body {
 .u-margin-bottom-small {
   margin-bottom: 2rem; }
 
+.u-margin-top-big {
+  margin-top: 8rem; }
+
 /**
   
   The link here is a pseudo class 
@@ -239,6 +242,11 @@ body {
     color: #777; }
     .btn--white::after {
       background-color: #fff; }
+  .btn--green {
+    background-color: #55c57a;
+    color: #fff; }
+    .btn--green::after {
+      background-color: #55c57a; }
   .btn:hover {
     transform: translateY(-0.3rem);
     /**
@@ -275,6 +283,8 @@ body {
     animation-fill-mode: backwards; }
 
 .btn-text {
+  padding: 1rem;
+  padding-bottom: 0;
   transition: all 0.2s; }
   .btn-text:link, .btn-text:visited {
     color: #55c57a;
@@ -283,6 +293,7 @@ body {
     border-bottom: 0.1rem solid #55c57a;
     font-size: 1.6rem; }
   .btn-text:hover {
+    padding-bottom: 1rem;
     background-color: #55c57a;
     color: #fff;
     box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
@@ -334,7 +345,7 @@ body {
   font-size: 1.5rem;
   padding: 2.5rem;
   text-align: center;
-  border-radius: 3px;
+  border-radius: 1rem;
   box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
   transition: all 0.3s; }
   .feature-box__icon {
@@ -405,7 +416,9 @@ body {
         -webkit-clip-path: This is to make it work in all sites
     */
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%); }
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem; }
     .card__picture--1 {
       background-image: url(../img/nat-5.jpg), linear-gradient(to right bottom, #ffb900, #ff7730); }
     .card__picture--2 {
@@ -597,5 +610,5 @@ body {
 
 .section-tours {
   background-color: #f7f7f7;
-  padding: 25rem 0 50rem 0;
+  padding: 25rem 0 15rem 0;
   margin-top: -20vh; }

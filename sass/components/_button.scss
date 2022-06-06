@@ -38,6 +38,13 @@
       background-color: $color-white;
     }
   }
+  &--green {
+    background-color: $color-primary;
+    color: $color-white;
+    &::after {
+      background-color: $color-primary;
+    }
+  }
   &:hover {
     transform: translateY(-0.3rem);
     /**
@@ -83,6 +90,8 @@
 }
 
 .btn-text {
+  padding: 1rem;
+  padding-bottom: 0;
   transition: all 0.2s;
   &:link,
   &:visited {
@@ -94,6 +103,7 @@
   }
 
   &:hover {
+    padding-bottom: 1rem;
     background-color: $color-primary;
     color: $color-white;
     box-shadow: 0 1rem 2rem rgba($color-black, 0.15);
