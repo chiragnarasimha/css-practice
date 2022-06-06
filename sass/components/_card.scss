@@ -19,6 +19,12 @@
     left: 0;
     width: 100%;
     border-radius: 1rem;
+    /**
+        When we added the image, there was a problem. The image was no longer respecting the border-radius set on the page. 
+
+        overflow:hidden will fix this issue.
+    */
+    overflow: hidden;
     box-shadow: 0 1.5rem 4rem rgba($color: $color-black, $alpha: 0.15);
 
     /**
@@ -49,5 +55,34 @@
   }
   &:hover &__side--back {
     transform: rotateY(0deg);
+  }
+
+  &__picture {
+    background-size: cover;
+    height: 23rem;
+    /**
+        This will blend two images together
+    */
+    background-blend-mode: screen;
+    /**
+        Add the diagonal effect to the bottom of the image
+        -webkit-clip-path: This is to make it work in all sites
+    */
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    &--1 {
+      background-image: url(../img/nat-5.jpg),
+        linear-gradient(
+          to right bottom,
+          $color-secondary-light,
+          $color-secondary-dark
+        );
+    }
+    &--2 {
+      background-image: url(../img/nat-5.jpg);
+    }
+    &--3 {
+      background-image: url(../img/nat-5.jpg);
+    }
   }
 }

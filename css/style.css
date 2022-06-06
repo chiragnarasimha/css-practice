@@ -365,6 +365,12 @@ body {
     left: 0;
     width: 100%;
     border-radius: 1rem;
+    /**
+        When we added the image, there was a problem. The image was no longer respecting the border-radius set on the page. 
+
+        overflow:hidden will fix this issue.
+    */
+    overflow: hidden;
     box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
     /**
         This is required to make the animation appear smoother
@@ -383,6 +389,25 @@ body {
     transform: rotateY(-180deg); }
   .card:hover .card__side--back {
     transform: rotateY(0deg); }
+  .card__picture {
+    background-size: cover;
+    height: 23rem;
+    /**
+        This will blend two images together
+    */
+    background-blend-mode: screen;
+    /**
+        Add the diagonal effect to the bottom of the image
+        -webkit-clip-path: This is to make it work in all sites
+    */
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%); }
+    .card__picture--1 {
+      background-image: url(../img/nat-5.jpg), linear-gradient(to right bottom, #ffb900, #ff7730); }
+    .card__picture--2 {
+      background-image: url(../img/nat-5.jpg); }
+    .card__picture--3 {
+      background-image: url(../img/nat-5.jpg); }
 
 /**
     This will define all the grid like structures that will be used in the project
@@ -462,6 +487,7 @@ body {
     This will allow the header to be clipped based on the specified shape. Inside the polygon function, specify the area of the image that should still be visible 
     corresponding corners: polygon( TL, TR, BR, BL) 
   */
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   /**
     The child elements will now use this parameter to align them selves 

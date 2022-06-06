@@ -28,6 +28,7 @@
     This will allow the header to be clipped based on the specified shape. Inside the polygon function, specify the area of the image that should still be visible 
     corresponding corners: polygon( TL, TR, BR, BL) 
   */
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   /**
     The child elements will now use this parameter to align them selves 
