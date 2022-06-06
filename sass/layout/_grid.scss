@@ -1,30 +1,30 @@
 /**
-  This will define all the grid like structures that will be used in the project
+    This will define all the grid like structures that will be used in the project
 */
 
 .row {
   max-width: $grid-width;
 
   /**
-    We are saying that the margin on top and bottom is 0. The margins left and right is auto
-    What this means is that CSS will automatically try to center the element
-  */
+        We are saying that the margin on top and bottom is 0. The margins left and right is auto
+        What this means is that CSS will automatically try to center the element
+    */
   margin: 0 auto;
   /**
-    We just want to make sure that there is no margin on the last row
-  */
+        We just want to make sure that there is no margin on the last row
+    */
   &:not(:last-child) {
     margin-bottom: $gutter-vertical;
   }
   @include clearfix;
   /**
-    Select based on partial class names.
-    Here we are selecting all the classes that will start off with col-
+        Select based on partial class names.
+        Here we are selecting all the classes that will start off with col-
 
-    ^= Any class that starts with the specified name
-    *= Any class that contains the specified name
-    $= Any class that ends with the specified name
-  */
+        ^= Any class that starts with the specified name
+        *= Any class that contains the specified name
+        $= Any class that ends with the specified name
+    */
   [class^="col-"] {
     float: left;
     &:not(:last-child) {
@@ -37,7 +37,22 @@
   .col-1-of-3 {
     width: calc((100% - (2 *#{$gutter-horizontal})) / 3);
   }
+  .col-2-of-3 {
+    width: calc(
+      2 * ((100% - (2 *#{$gutter-horizontal})) / 3) + #{$gutter-horizontal}
+    );
+  }
   .col-1-of-4 {
     width: calc((100% - (3 *#{$gutter-horizontal})) / 4);
+  }
+  .col-2-of-4 {
+    width: calc(
+      2 * ((100% - (3 *#{$gutter-horizontal})) / 4) + #{$gutter-horizontal}
+    );
+  }
+  .col-3-of-4 {
+    width: calc(
+      3 * ((100% - (3 *#{$gutter-horizontal})) / 4) + (2 *#{$gutter-horizontal})
+    );
   }
 }
