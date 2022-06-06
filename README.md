@@ -12,3 +12,6 @@ Get free icons
 
 unsplash -> https://unsplash.com/
 Free Images to use for the website
+
+cover -> coverr.co
+Free videos that can be used in the site
