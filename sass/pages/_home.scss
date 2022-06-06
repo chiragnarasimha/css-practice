@@ -17,4 +17,17 @@
       rgba($color-primary-dark, 0.8)
     ),
     url(../img/nat-4.jpg);
+
+  /**
+    We are only trying to skew the background
+
+    This is why we use the & > * to select all the direct children of this element. We will then skew it back to look straight
+  */
+  transform: skewY(-7deg);
+
+  & > * {
+    transform: skewy(7deg);
+  }
+
+  margin-top: -10rem;
 }
