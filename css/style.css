@@ -348,6 +348,42 @@ body {
   .feature-box:hover {
     transform: translateY(-3rem); }
 
+.card {
+  /**
+      This will make it so that the card feels like it is turning physically
+  */
+  perspective: 150rem;
+  -moz-perspective: 150rem;
+  position: relative;
+  height: 50rem; }
+  .card__side {
+    background-color: orangered;
+    height: 50rem;
+    transition: all 0.8s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border-radius: 1rem;
+    box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+    /**
+        This is required to make the animation appear smoother
+    */
+    backface-visibility: hidden; }
+    .card__side--front {
+      background-color: #fff; }
+    .card__side--back {
+      /**
+        Even before hovering, the backside is already flidded
+        */
+      transform: rotateY(180deg); }
+      .card__side--back-1 {
+        background-image: linear-gradient(to right bottom, #ffb900, #ff7730); }
+  .card:hover .card__side--front {
+    transform: rotateY(-180deg); }
+  .card:hover .card__side--back {
+    transform: rotateY(0deg); }
+
 /**
     This will define all the grid like structures that will be used in the project
 */
@@ -477,3 +513,8 @@ body {
   margin-top: -10rem; }
   .section-features > * {
     transform: skewy(7deg); }
+
+.section-tours {
+  background-color: #f7f7f7;
+  padding: 25rem 0 50rem 0;
+  margin-top: -20vh; }
