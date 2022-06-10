@@ -18,7 +18,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    border-radius: 1rem;
+    border-radius: $default-border-radius;
     /**
         When we added the image, there was a problem. The image was no longer respecting the border-radius set on the page. 
 
@@ -84,8 +84,8 @@
     */
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
     clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-    border-top-left-radius: 1rem;
-    border-top-right-radius: 1rem;
+    border-top-left-radius: $default-border-radius;
+    border-top-right-radius: $default-border-radius;
     &--1 {
       background-image: url(../img/nat-5.jpg),
         linear-gradient(

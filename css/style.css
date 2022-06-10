@@ -313,7 +313,7 @@ body {
   .composition__photo {
     width: 55%;
     box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.4);
-    border-radius: 1rem;
+    border-radius: 1.6rem;
     /**
         As soon as we set the position to absolute on an element, these elements wll be placed according to a reference and the reference is the first parent that it encounters
     */
@@ -345,9 +345,9 @@ body {
   font-size: 1.5rem;
   padding: 2.5rem;
   text-align: center;
-  border-radius: 1rem;
+  border-radius: 1.6rem;
   box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
-  transition: all 0.3s; }
+  transition: all 0.5s; }
   .feature-box__icon {
     font-size: 6rem;
     margin-bottom: 0.5rem;
@@ -375,7 +375,7 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    border-radius: 1rem;
+    border-radius: 1.6rem;
     /**
         When we added the image, there was a problem. The image was no longer respecting the border-radius set on the page. 
 
@@ -417,8 +417,8 @@ body {
     */
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
     clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-    border-top-left-radius: 1rem;
-    border-top-right-radius: 1rem; }
+    border-top-left-radius: 1.6rem;
+    border-top-right-radius: 1.6rem; }
     .card__picture--1 {
       background-image: url(../img/nat-5.jpg), linear-gradient(to right bottom, #ffb900, #ff7730); }
     .card__picture--2 {
@@ -539,6 +539,43 @@ body {
     width: 100%;
     -webkit-object-fit: cover;
     object-fit: cover; }
+
+.book {
+  /**
+    Here we are using two images.
+    1st one is a linear gradient.
+      The linear gradient has an angle of 105deg
+      It has to be white till 50%
+      It will then make a sharp transition to black at 50%
+    2nd one is the picture that will be placed underneath it
+  */
+  background-image: linear-gradient(105deg, rgba(255, 255, 255, 0.9) 50%, rgba(0, 0, 0, 0.3) 50%), url(../img/nat-10.jpg);
+  background-size: cover;
+  border-radius: 1.6rem;
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.3);
+  height: 50rem;
+  transition: all 0.3s; }
+  .book:hover, .book:active, .book:focus {
+    transform: scale(1.1); }
+  .book__form {
+    width: 50%;
+    padding: 6rem; }
+
+.form__group:not(:last-child) {
+  margin-bottom: 2rem; }
+
+.form__input {
+  font-size: 1.5rem;
+  /**
+        The input elements are different. They do not inherit the font family by default. Therefore, we need to explicitly specify it
+    */
+  font-family: inherit;
+  padding: 1.5rem 2rem;
+  border-radius: calc(0.3 * 1.6rem);
+  background-color: rgba(255, 255, 255, 0.5);
+  border: none; }
+  .form__input:focus {
+    outline: none; }
 
 /**
     This will define all the grid like structures that will be used in the project
@@ -679,3 +716,7 @@ body {
 .section-stories {
   padding: 15rem 0;
   position: relative; }
+
+.section-book {
+  padding: 15rem 0;
+  background-image: linear-gradient(to right bottom, #7ed56f, #28b485); }

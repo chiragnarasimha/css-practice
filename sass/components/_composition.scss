@@ -7,7 +7,7 @@
   &__photo {
     width: 55%;
     box-shadow: 0 1.5rem 4rem rgba($color-black, 0.4);
-    border-radius: 1rem;
+    border-radius: $default-border-radius;
     /**
         As soon as we set the position to absolute on an element, these elements wll be placed according to a reference and the reference is the first parent that it encounters
     */
