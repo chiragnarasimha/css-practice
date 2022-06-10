@@ -16,14 +16,13 @@
   background-size: cover;
   border-radius: $default-border-radius;
   box-shadow: 0 1.5rem 4rem rgba($color: $color-black, $alpha: 0.3);
-  height: 50rem;
+  //   height: 50rem;
   transition: all 0.3s;
 
-  &:hover,
-  &:active,
-  &:focus {
-    transform: scale(1.1);
-  }
+  //   &:hover,
+  //   &:active {
+  //     transform: scale(1.1);
+  //   }
 
   &__form {
     width: 50%;

@@ -553,29 +553,67 @@ body {
   background-size: cover;
   border-radius: 1.6rem;
   box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.3);
-  height: 50rem;
   transition: all 0.3s; }
-  .book:hover, .book:active, .book:focus {
-    transform: scale(1.1); }
   .book__form {
     width: 50%;
     padding: 6rem; }
 
-.form__group:not(:last-child) {
-  margin-bottom: 2rem; }
-
-.form__input {
-  font-size: 1.5rem;
+.form {
   /**
-        The input elements are different. They do not inherit the font family by default. Therefore, we need to explicitly specify it
+    + => This is known as the adjacent sibling selector. This will select the direct sibling
+    ~ => This will known as the general sibling selector. Say its not a directly siblings, and that there are other levels in between. In this scenario, it makes a lot more sense to use this general selector
+
+    These concepts only apply because the code for label in index.html comes after the code for input. If it was written the other way around, then it will not work
+
+    Note: These styles will only apply when the placeholder is visible
+  */ }
+  .form__group:not(:last-child) {
+    margin-bottom: 2rem; }
+  .form__input {
+    font-size: 1.5rem;
+    /**
+        The input elements are different. They do not inherit the font properties by default. Therefore, we need to explicitly specify it
     */
-  font-family: inherit;
-  padding: 1.5rem 2rem;
-  border-radius: calc(0.3 * 1.6rem);
-  background-color: rgba(255, 255, 255, 0.5);
-  border: none; }
-  .form__input:focus {
-    outline: none; }
+    font-family: inherit;
+    color: inherit;
+    padding: 1.5rem 2rem;
+    border-radius: calc(0.3 * 1.6rem);
+    background-color: rgba(255, 255, 255, 0.5);
+    border: none;
+    /**
+        This is to ensure that the element will not push other elements down when effects such as shadow is applied
+    */
+    border-bottom: 0.3rem solid transparent;
+    transition: all 0.3s;
+    width: 100%;
+    display: block;
+    /**
+        This will style the placeholder text
+    */ }
+    .form__input:focus {
+      outline: none;
+      box-shadow: 0rem 1rem 2rem rgba(0, 0, 0, 0.1);
+      border-bottom: 0.3rem solid #55c57a;
+      transform: scale(1.03);
+      border-right: 10rem;
+      /**
+        When the form data is invalid, apply these styles
+      */ }
+      .form__input:focus:invalid {
+        border-bottom: 0.3rem solid #ff7730; }
+    .form__input::-webkit-input-placeholder {
+      color: #999; }
+  .form__label {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-left: 1.5rem;
+    margin-top: 0.7rem;
+    display: block;
+    transition: all 0.3s; }
+  .form__input:placeholder-shown + .form__label {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-4.35rem); }
 
 /**
     This will define all the grid like structures that will be used in the project

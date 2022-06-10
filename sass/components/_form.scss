@@ -5,18 +5,66 @@
   &__input {
     font-size: 1.5rem;
     /**
-        The input elements are different. They do not inherit the font family by default. Therefore, we need to explicitly specify it
+        The input elements are different. They do not inherit the font properties by default. Therefore, we need to explicitly specify it
     */
     font-family: inherit;
+    color: inherit;
+
     padding: 1.5rem 2rem;
     border-radius: calc(0.3 * #{$default-border-radius});
     background-color: rgba($color: $color-white, $alpha: 0.5);
     border: none;
+    /**
+        This is to ensure that the element will not push other elements down when effects such as shadow is applied
+    */
+    border-bottom: 0.3rem solid transparent;
+    transition: all 0.3s;
+    width: 100%;
+    display: block;
 
     &:focus {
       outline: none;
+      box-shadow: 0rem 1rem 2rem rgba($color: $color-black, $alpha: 0.1);
+      border-bottom: 0.3rem solid $color-primary;
+      transform: scale(1.03);
+      border-right: 10rem;
+
+      /**
+        When the form data is invalid, apply these styles
+      */
+      &:invalid {
+        border-bottom: 0.3rem solid $color-secondary-dark;
+      }
+    }
+
+    /**
+        This will style the placeholder text
+    */
+    &::-webkit-input-placeholder {
+      color: $color-grey-dark-2;
     }
   }
+
   &__label {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-left: 1.5rem;
+    margin-top: 0.7rem;
+    display: block;
+    transition: all 0.3s;
+  }
+
+  /**
+    + => This is known as the adjacent sibling selector. This will select the direct sibling
+    ~ => This will known as the general sibling selector. Say its not a directly siblings, and that there are other levels in between. In this scenario, it makes a lot more sense to use this general selector
+
+    These concepts only apply because the code for label in index.html comes after the code for input. If it was written the other way around, then it will not work
+
+    Note: These styles will only apply when the placeholder is visible
+  */
+  &__input:placeholder-shown + &__label {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-4.35rem);
   }
 }
