@@ -210,16 +210,13 @@ body {
 .u-margin-top-big {
   margin-top: 8rem !important; }
 
-/**
-  
-  The link here is a pseudo class 
-  https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes
-
-  link - How the link should appear
-  visited - How the link should appear after the user has clicked on it. By default, the browsers will change the color of the link to indicate the user has visited this before. In this application, we want the link to look exactly the same even after it has been visited
-*/
 .btn {
   /**
+    The link here is a pseudo class 
+    https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes
+
+    link - How the link should appear
+    visited - How the link should appear after the user has clicked on it. By default, the browsers will change the color of the link to indicate the user has visited this before. In this application, we want the link to look exactly the same even after it has been visited
     &, means also apply these styles to a regular button
   */
   /** 
@@ -233,7 +230,7 @@ body {
     */
     padding: 1.5rem 4rem;
     /**
-      inline-block prevents the btn from overlapping on the previous element 
+      inline-block prevents the btn from overlapping on the previous element
     */
     display: inline-block;
     border-radius: 10rem;
@@ -249,7 +246,7 @@ body {
     border: none;
     cursor: pointer; }
   .btn--white {
-    background-color: white;
+    background-color: #fff;
     color: #777; }
     .btn--white::after {
       background-color: #fff; }
@@ -258,25 +255,27 @@ body {
     color: #fff; }
     .btn--green::after {
       background-color: #55c57a; }
-  .btn:hover, .btn:focus {
-    transform: translateY(-0.3rem);
+  .btn:hover {
+    outline: none;
+    transform: translateY(-5px);
     /**
       0 - Just in the epsilon or y axis
       10px - The shadow will be 10 px down
       20px - The blur we will see
     */
     box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
-    .btn:hover::after, .btn:focus::after {
+    .btn:hover::after {
+      outline: none;
       transform: scaleX(1.4) scaleY(1.6);
       opacity: 0; }
-  .btn:active, .btn:focus {
-    outline: none;
+  .btn:active {
     transform: translateY(-1px);
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); }
   .btn::after {
     /**
       For the after pseudo element to appear, we need to specify the content. Doesn't matter even if it is empty. We need to specify it
     */
+    outline: none;
     content: "";
     display: inline-block;
     height: 100%;
@@ -286,7 +285,7 @@ body {
     top: 0;
     left: 0;
     z-index: -1;
-    transition: all 0.4s; }
+    transition: all 0.5s; }
   .btn--animated {
     animation: moveInBottom 0.5s ease-out 0.75s;
     /**

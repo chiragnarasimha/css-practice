@@ -1,14 +1,10 @@
-/**
-  
-  The link here is a pseudo class 
-  https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes
-
-  link - How the link should appear
-  visited - How the link should appear after the user has clicked on it. By default, the browsers will change the color of the link to indicate the user has visited this before. In this application, we want the link to look exactly the same even after it has been visited
-*/
-
 .btn {
   /**
+    The link here is a pseudo class 
+    https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes
+
+    link - How the link should appear
+    visited - How the link should appear after the user has clicked on it. By default, the browsers will change the color of the link to indicate the user has visited this before. In this application, we want the link to look exactly the same even after it has been visited
     &, means also apply these styles to a regular button
   */
   &,
@@ -21,7 +17,7 @@
     */
     padding: 1.5rem 4rem;
     /**
-      inline-block prevents the btn from overlapping on the previous element 
+      inline-block prevents the btn from overlapping on the previous element
     */
     display: inline-block;
     border-radius: 10rem;
@@ -40,7 +36,7 @@
     cursor: pointer;
   }
   &--white {
-    background-color: white;
+    background-color: $color-white;
     color: $color-grey-dark-1;
     &::after {
       background-color: $color-white;
@@ -53,9 +49,9 @@
       background-color: $color-primary;
     }
   }
-  &:hover,
-  &:focus {
-    transform: translateY(-0.3rem);
+  &:hover {
+    outline: none;
+    transform: translateY(-5px);
     /**
       0 - Just in the epsilon or y axis
       10px - The shadow will be 10 px down
@@ -63,6 +59,7 @@
     */
     box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
     &::after {
+      outline: none;
       transform: scaleX(1.4) scaleY(1.6);
       opacity: 0;
     }
@@ -70,9 +67,7 @@
   /** 
     Active is for when you click on the element 
   */
-  &:active,
-  &:focus {
-    outline: none;
+  &:active {
     transform: translateY(-1px);
     box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
   }
@@ -80,6 +75,7 @@
     /**
       For the after pseudo element to appear, we need to specify the content. Doesn't matter even if it is empty. We need to specify it
     */
+    outline: none;
     content: "";
     display: inline-block;
     height: 100%;
@@ -89,7 +85,7 @@
     top: 0;
     left: 0;
     z-index: -1;
-    transition: all 0.4s;
+    transition: all 0.5s;
   }
   &--animated {
     animation: moveInBottom 0.5s ease-out 0.75s;
