@@ -192,17 +192,23 @@ body {
   .paragraph:not(:last-child) {
     margin-bottom: 3rem; }
 
+/**
+  !important keyword is used here because when we use a utility class, we want it to overwrite any other styles
+*/
 .u-center-text {
-  text-align: center; }
+  text-align: center !important; }
 
 .u-margin-bottom-big {
-  margin-bottom: 8rem; }
+  margin-bottom: 8rem !important; }
 
 .u-margin-bottom-small {
-  margin-bottom: 2rem; }
+  margin-bottom: 1.5rem !important; }
+
+.u-margin-bottom-medium {
+  margin-bottom: 4rem !important; }
 
 .u-margin-top-big {
-  margin-top: 8rem; }
+  margin-top: 8rem !important; }
 
 /**
   
@@ -213,10 +219,13 @@ body {
   visited - How the link should appear after the user has clicked on it. By default, the browsers will change the color of the link to indicate the user has visited this before. In this application, we want the link to look exactly the same even after it has been visited
 */
 .btn {
+  /**
+    &, means also apply these styles to a regular button
+  */
   /** 
     Active is for when you click on the element 
   */ }
-  .btn:link, .btn:visited {
+  .btn, .btn:link, .btn:visited {
     text-transform: uppercase;
     text-decoration: none;
     /**
@@ -236,7 +245,9 @@ body {
       In this case, the after pseudo class will use this to align itself. 
     */
     position: relative;
-    font-size: 1.6rem; }
+    font-size: 1.6rem;
+    border: none;
+    cursor: pointer; }
   .btn--white {
     background-color: white;
     color: #777; }
@@ -247,7 +258,7 @@ body {
     color: #fff; }
     .btn--green::after {
       background-color: #55c57a; }
-  .btn:hover {
+  .btn:hover, .btn:focus {
     transform: translateY(-0.3rem);
     /**
       0 - Just in the epsilon or y axis
@@ -255,10 +266,11 @@ body {
       20px - The blur we will see
     */
     box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
-    .btn:hover::after {
+    .btn:hover::after, .btn:focus::after {
       transform: scaleX(1.4) scaleY(1.6);
       opacity: 0; }
-  .btn:active {
+  .btn:active, .btn:focus {
+    outline: none;
     transform: translateY(-1px);
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); }
   .btn::after {
@@ -614,6 +626,67 @@ body {
     opacity: 0;
     visibility: hidden;
     transform: translateY(-4.35rem); }
+  .form__radio {
+    /**
+      This is how to create a custom radio button
+    */
+    /**
+      We need to select radio-button. This is a child of the radio-label. Therefore, we first select radio-label using + and then we select radio-button
+    */ }
+    .form__radio-group {
+      /**
+        Trial and error. We saw at 49% the buttons actually appear side by side
+      */
+      width: 49%;
+      /**
+        They will be blocks, but within the same line
+      */
+      display: inline-block; }
+    .form__radio-label {
+      font-size: 1.6rem;
+      cursor: pointer;
+      /**
+        label is the parent for the button
+      */
+      position: relative;
+      padding-left: 4.5rem; }
+    .form__radio-button {
+      height: 3rem;
+      width: 3rem;
+      border: 5px solid #55c57a;
+      border-radius: 50%;
+      display: inline-block;
+      /**
+        For position absolute to work, we need specify the parent position. Whether it is relative or absolute
+      */
+      position: absolute;
+      left: 0;
+      top: -0.5rem; }
+      .form__radio-button::after {
+        /**
+          Each time we use a pseudo element, we need to specify the content property
+        */
+        content: "";
+        height: 1.3rem;
+        width: 1.3rem;
+        border-radius: 50%;
+        position: absolute;
+        padding: auto;
+        top: 50%;
+        left: 50%;
+        /**
+          This is to make it center
+        */
+        transform: translate(-50%, -50%);
+        background-color: #55c57a;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.2s; }
+    .form__radio-input:checked + .form__radio-label .form__radio-button::after {
+      opacity: 1;
+      visibility: visible; }
+    .form__radio-input {
+      display: none; }
 
 /**
     This will define all the grid like structures that will be used in the project

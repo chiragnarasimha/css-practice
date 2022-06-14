@@ -67,4 +67,78 @@
     visibility: hidden;
     transform: translateY(-4.35rem);
   }
+
+  &__radio {
+    &-group {
+      /**
+        Trial and error. We saw at 49% the buttons actually appear side by side
+      */
+      width: 49%;
+      /**
+        They will be blocks, but within the same line
+      */
+      display: inline-block;
+    }
+    &-label {
+      font-size: $default-font-size;
+      cursor: pointer;
+      /**
+        label is the parent for the button
+      */
+      position: relative;
+      padding-left: 4.5rem;
+    }
+    /**
+      This is how to create a custom radio button
+    */
+    &-button {
+      height: 3rem;
+      width: 3rem;
+      border: 5px solid $color-primary;
+      border-radius: 50%;
+      display: inline-block;
+      /**
+        For position absolute to work, we need specify the parent position. Whether it is relative or absolute
+      */
+      position: absolute;
+      left: 0;
+      top: -0.5rem;
+      &::after {
+        /**
+          Each time we use a pseudo element, we need to specify the content property
+        */
+        content: "";
+        // display: block;
+        height: 1.3rem;
+        width: 1.3rem;
+        border-radius: 50%;
+        position: absolute;
+        padding: auto;
+        // margin: auto;
+        top: 50%;
+        left: 50%;
+        /**
+          This is to make it center
+        */
+        transform: translate(-50%, -50%);
+        background-color: $color-primary;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.2s;
+      }
+    }
+
+    /**
+      We need to select radio-button. This is a child of the radio-label. Therefore, we first select radio-label using + and then we select radio-button
+    */
+    &-input:checked + &-label &-button::after {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    &-input {
+      // visibility: hidden;
+      display: none;
+    }
+  }
 }

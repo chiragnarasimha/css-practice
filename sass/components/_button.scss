@@ -8,6 +8,10 @@
 */
 
 .btn {
+  /**
+    &, means also apply these styles to a regular button
+  */
+  &,
   &:link,
   &:visited {
     text-transform: uppercase;
@@ -30,6 +34,10 @@
     */
     position: relative;
     font-size: $default-font-size;
+
+    // By Default, buttons come with a border. We want to remove this.
+    border: none;
+    cursor: pointer;
   }
   &--white {
     background-color: white;
@@ -45,7 +53,8 @@
       background-color: $color-primary;
     }
   }
-  &:hover {
+  &:hover,
+  &:focus {
     transform: translateY(-0.3rem);
     /**
       0 - Just in the epsilon or y axis
@@ -61,7 +70,9 @@
   /** 
     Active is for when you click on the element 
   */
-  &:active {
+  &:active,
+  &:focus {
+    outline: none;
     transform: translateY(-1px);
     box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
   }

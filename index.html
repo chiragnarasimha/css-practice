@@ -333,12 +333,80 @@
                   />
                   <label for="email" class="form__label">Email</label>
                 </div>
+                <div class="form__group">
+                  <!-- It is important that the radio buttons use the same name. This is how the browser will know to toggle the inputs.-->
+                  <div class="form__radio-group">
+                    <input
+                      type="radio"
+                      class="form__radio-input"
+                      id="smallTours"
+                      name="sizeRadio"
+                    />
+                    <label for="smallTours" class="form__radio-label">
+                      <!-- In CSS, there is no way to directly style radio buttons. Therefore, we will need to build our own buttons -->
+                      <span class="form__radio-button"></span>
+                      Small tour group
+                    </label>
+                  </div>
+                  <div class="form__radio-group u-margin-bottom-medium">
+                    <input
+                      type="radio"
+                      class="form__radio-input"
+                      id="largeTours"
+                      name="sizeRadio"
+                    />
+                    <label for="largeTours" class="form__radio-label">
+                      <span class="form__radio-button"></span>
+                      Large tour group</label
+                    >
+                  </div>
+                </div>
+                <div class="form__group">
+                  <button class="btn btn--green">Next Step &rarr;</button>
+                </div>
               </form>
             </div>
           </div>
         </div>
       </section>
     </main>
+    <!-- <footer class="footer">
+      <div class="footer__logo-box">
+        <img src="img/logo-green-2x.png" alt="Full Logo" />
+        <div class="row">
+          <div class="col-1-of-2">
+            <div class="footer__navigation">
+              <ul class="footer__list">
+                <li class="footer__item">
+                  <a href="#footer" class="footer__link">Company</a>
+                </li>
+                <li class="footer__item">
+                  <a href="#footer" class="footer__link">Contact Us</a>
+                </li>
+                <li class="footer__item">
+                  <a href="#footer" class="footer__link">Careers</a>
+                </li>
+                <li class="footer__item">
+                  <a href="#footer" class="footer__link">Privacy Policy</a>
+                </li>
+                <li class="footer__item">
+                  <a href="#footer" class="footer__link">Terms</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-1-of-2">
+            <p class="footer__copyright">
+              Built by
+              <a href="#footer" class="footer__link">Chirag Narasimha Murthy</a>
+              to practice advanced CSS techniques. Copyright &copy;. You are
+              allowed to use this page for personal or commercial use, as long
+              as the original author has been accredited.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer> -->
 
     <!-- <!-- This section is just to test the grid. It will need to be deleted later -- >
     <section class="grid-test">
