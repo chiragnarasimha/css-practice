@@ -296,7 +296,7 @@ body {
 
 .btn-text {
   padding: 1rem;
-  padding-bottom: 0;
+  padding-bottom: 1rem;
   transition: all 0.2s; }
   .btn-text:link, .btn-text:visited {
     color: #55c57a;
