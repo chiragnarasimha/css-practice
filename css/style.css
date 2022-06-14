@@ -830,12 +830,15 @@ body {
     display: inline-block;
     transition: all 0.2s;
     padding: 0rem 0.5rem; }
-  .footer__link:hover, .footer__link:active {
+  .footer__link:hover {
     color: #55c57a;
     padding: 0rem 0.5rem;
     border-radius: 1.6rem;
     box-shadow: 0rem 1rem 2rem rgba(0, 0, 0, 0.4);
-    transform: scale(1.1); }
+    transform: scale(1.1) translateY(-3px); }
+  .footer__link:active {
+    transform: scale(1.1) translateY(-1.5px);
+    box-shadow: 0rem 0.5rem 1rem rgba(0, 0, 0, 0.4); }
   .footer__copyright {
     border-top: 1px solid #eee;
     padding-top: 2rem;

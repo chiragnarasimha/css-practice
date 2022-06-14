@@ -41,16 +41,18 @@
       padding: 0rem 0.5rem;
     }
 
-    &:hover,
-    &:active {
+    &:hover {
       color: $color-primary;
       padding: 0rem 0.5rem;
-      //   position: absolute;
-      //   top: 0;
-      //   left: 0;
       border-radius: $default-border-radius;
+
       box-shadow: 0rem 1rem 2rem rgba($color: $color-black, $alpha: 0.4);
-      transform: scale(1.1);
+      transform: scale(1.1) translateY(-3px);
+    }
+
+    &:active {
+      transform: scale(1.1) translateY(-1.5px);
+      box-shadow: 0rem 0.5rem 1rem rgba($color: $color-black, $alpha: 0.4);
     }
   }
 
