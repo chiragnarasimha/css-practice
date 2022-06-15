@@ -1,0 +1,107 @@
+.navigation {
+  &__checkbox {
+    display: none;
+  }
+  &__button {
+    background-color: $color-white;
+    height: 7rem;
+    width: 7rem;
+    position: fixed;
+    top: 6rem;
+    right: 6rem;
+    border-radius: 50%;
+    z-index: 2000;
+  }
+  &__background {
+    height: 6rem;
+    width: 6rem;
+    border-radius: 50%;
+    position: fixed;
+    right: 6.5rem;
+    // top: 9.5rem;
+    top: 6.5rem;
+    background-image: radial-gradient(
+      $color-primary-light,
+      $color-primary-dark
+    );
+    z-index: 1000;
+
+    transform: scale(100);
+  }
+  &__nav {
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1500;
+  }
+  &__list {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    list-style: none;
+    text-align: center;
+  }
+  &__item {
+    margin: 2rem;
+  }
+  &__link {
+    &:link,
+    &:visited {
+      /**
+            It is important to define how these elements should be displayed. Without this, a lot of the properties will not apply. Properties such as transform, padding all rely on what kind of display parameter is defined
+        */
+      display: inline-block;
+      border-radius: $default-border-radius;
+      text-decoration: none;
+      font-size: 3rem;
+      font-weight: 300;
+      padding: 1rem 2rem;
+      color: $color-white;
+      text-transform: uppercase;
+      //   background-image: linear-gradient(
+      //     120deg,
+      //     transparent 0%,
+      //     transparent 50%,
+      //     white 50%
+      //   );
+
+      background-image: linear-gradient(
+        120deg,
+        transparent 0%,
+        transparent 50%,
+        white 50%
+      );
+      /**
+        To achieve the animation, we need to increase the background size. Say we set it to 220%, then the background will be stretched to outside the link. Therefore, it will be essentially just covered with the transparent section of the image. 
+
+        background-size: Percentage => Stretches the image in the corresponding dimension to the specified percentage of the background positioning area.
+      */
+      background-size: 250%;
+      transition: all 0.4s;
+    }
+
+    /**
+        Adding a span element allows the developer to easily define the spacing between the elements 
+    */
+    span {
+      margin-right: 1.5rem;
+    }
+
+    &:hover,
+    &:active {
+      /**
+        https://developer.mozilla.org/en-US/docs/Web/CSS/background-position
+        background-position: 100% => A value of 100% means that the right (or bottom) edge of the background image is aligned with the right (or bottom) edge of the container   
+      */
+      background-position: 100%;
+
+      //   transform: scale(10);
+      color: $color-primary-dark;
+      transform: translateX(1rem) scale(1.1);
+      border-radius: $default-border-radius;
+    }
+  }
+}
