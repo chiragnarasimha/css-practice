@@ -12,6 +12,18 @@
     border-radius: 50%;
     z-index: 2000;
     box-shadow: 0 1rem 3rem rgba($color: $color-black, $alpha: 0.1);
+    text-align: center;
+    cursor: pointer;
+
+    transition: all 0.1s;
+    &:hover {
+      transform: scale(1.1) translateY(-3px);
+      box-shadow: 0 2rem 3rem rgba($color: $color-black, $alpha: 0.2);
+    }
+    &:active {
+      transform: scale(1) translateY(-1.5px);
+      box-shadow: 0 1rem 3rem rgba($color: $color-black, $alpha: 0.1);
+    }
   }
   &__background {
     height: 6rem;
@@ -125,5 +137,64 @@
     width: 100%;
     visibility: visible;
     opacity: 1;
+  }
+
+  &__icon {
+    position: relative;
+    margin-top: 3.5rem;
+    transition: all 0.1s;
+
+    &,
+    &::before,
+    &::after {
+      width: 3rem;
+      height: 2px;
+      background-color: $color-grey-dark-3;
+      display: inline-block;
+    }
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      transition: all 0.1s;
+    }
+    &::before {
+      top: -0.8rem;
+    }
+    &::after {
+      top: 0.8rem;
+    }
+  }
+
+  &__button:hover &__icon::before {
+    top: -1rem;
+  }
+  &__button:active &__icon::before {
+    top: -0.8rem;
+  }
+
+  &__button:hover &__icon::after {
+    top: 1rem;
+  }
+  &__button:active &__icon::after {
+    top: 0.8rem;
+  }
+  &__checkbox:checked + &__button &__icon {
+    background-color: transparent;
+  }
+  &__checkbox:checked + &__button &__icon::before {
+    top: 0;
+    /**
+        we want to rotate to flat and then back to 45 deg
+    */
+    // transform: rotate(180deg);
+    transform: rotate(135deg);
+  }
+  &__checkbox:checked + &__button &__icon::after {
+    top: 0;
+    // transform: rotate(-180deg);
+    transform: rotate(-135deg);
   }
 }
