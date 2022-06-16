@@ -726,7 +726,10 @@ body {
             border-bottom-left-radius: $default-border-radius;
         }
     */
-    overflow: hidden; }
+    overflow: hidden;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0);
+    transition: all 0.4s; }
   .popup__left {
     width: calc(100% / 3);
     /**
@@ -777,6 +780,9 @@ body {
   .popup:target {
     opacity: 1;
     visibility: visible; }
+  .popup:target .popup__content {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1); }
 
 /**
     This will define all the grid like structures that will be used in the project
