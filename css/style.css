@@ -687,6 +687,97 @@ body {
     .form__radio-input {
       display: none; }
 
+.popup {
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+  /**
+    This will ensure that when the URL changes, this popup will 
+    open up in its place
+  */ }
+  .popup__content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 75%;
+    background-color: #fff;
+    border-radius: 1.6rem;
+    box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.1);
+    /**
+        Table is a better alternative to use here. This is because of
+        both the cells will have the same height 
+    */
+    display: table;
+    /**
+    The alternative to using the overflow hidden is this. This is 
+    not a great way of doing it.
+        &:first-child {
+             border-top-left-radius: $default-border-radius;
+        }
+        &:last-child {
+            border-bottom-left-radius: $default-border-radius;
+        }
+    */
+    overflow: hidden; }
+  .popup__left {
+    width: calc(100% / 3);
+    /**
+        Although it is possible to use floats to position these images, 
+        it is not advisable. This is because of the fact that floats 
+        tend to occupy the space that its content actually needs. THis 
+        will mean that it will make it difficult to position the 
+        children elements
+    */
+    display: table-cell;
+    vertical-align: middle;
+    border-radius: 1.6rem; }
+  .popup__right {
+    width: calc(100% / 3 * 2);
+    display: table-cell;
+    vertical-align: middle;
+    padding: 3rem 5rem; }
+  .popup__img {
+    display: block;
+    width: 100%; }
+  .popup__text {
+    font-size: 1.4rem;
+    margin-bottom: 4rem;
+    -moz-column-count: 2;
+    -moz-column-count: 2;
+    -moz-column-gap: 4rem;
+    -webkit-column-gap: 4rem;
+    -webkit-column-rule: 1px solid #eee;
+    -webkit-column-rule: 1px solid #eee;
+    column-count: 2;
+    column-gap: 4rem;
+    column-rule: 1px solid #eee;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto; }
+  .popup__close:link, .popup__close:visited {
+    color: #777;
+    position: absolute;
+    top: 0.5rem;
+    right: 2.5rem;
+    font-size: 3rem;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.2s; }
+  .popup__close:hover {
+    color: #ff7730; }
+  .popup:target {
+    opacity: 1;
+    visibility: visible; }
+
 /**
     This will define all the grid like structures that will be used in the project
 */
@@ -993,6 +1084,18 @@ body {
 .navigation__checkbox:checked + .navigation__button .navigation__icon::after {
   top: 0;
   transform: rotate(-135deg); }
+
+.navigation__button-href {
+  z-index: 8000;
+  position: absolute;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  border-radius: 50%; }
 
 /**
     This file will contain the styles that are specific to the home page only

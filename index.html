@@ -19,38 +19,98 @@
   </head>
 
   <body>
-    <div class="navigation">
+    <div class="navigation" id="navigation">
       <input type="checkbox" class="navigation__checkbox" id="navi-toggle" />
-      <label for="navi-toggle" class="navigation__button"
-        ><span class="navigation__icon"></span
-      ></label>
+      <label
+        for="navi-toggle"
+        class="navigation__button"
+        id="navi-toggle-label"
+      >
+        <span class="navigation__icon"> </span>
+      </label>
+      <!-- <label for="navi-toggle" class="navigation__button">
+        <a href="#navigation" class="navigation__button-href">
+          <span class="navigation__icon"> </span>
+        </a>
+      </label> -->
       <div class="navigation__background">&nbsp;</div>
       <nav class="navigation__nav">
         <ul class="navigation__list">
           <li class="navigation__item">
-            <a href="#section-about" class="navigation__link">
+            <a
+              href="#section-about"
+              class="navigation__link"
+              id="li_01_aboutNatours"
+            >
               <span>01</span>
               About Natours
+              <script>
+                document
+                  .getElementById("li_01_aboutNatours")
+                  .addEventListener("click", function handleClick() {
+                    document.getElementById("navi-toggle").click();
+                  });
+              </script>
             </a>
           </li>
           <li class="navigation__item">
-            <a href="#section-features" class="navigation__link">
+            <a
+              href="#section-features"
+              class="navigation__link"
+              id="li_02_yourBenefits"
+            >
               <span>02</span>Your Benefits
+              <script>
+                document
+                  .getElementById("li_02_yourBenefits")
+                  .addEventListener("click", function handleClick() {
+                    document.getElementById("navi-toggle").click();
+                  });
+              </script>
             </a>
           </li>
           <li class="navigation__item">
-            <a href="#section-tours" class="navigation__link">
+            <a
+              href="#section-tours"
+              class="navigation__link"
+              id="li_03_popularTours"
+            >
               <span>03</span>Popular tours
+              <script>
+                document
+                  .getElementById("li_03_popularTours")
+                  .addEventListener("click", function handleClick() {
+                    document.getElementById("navi-toggle").click();
+                  });
+              </script>
             </a>
           </li>
           <li class="navigation__item">
-            <a href="#section-stories" class="navigation__link">
+            <a
+              href="#section-stories"
+              class="navigation__link"
+              id="li_04_stories"
+            >
               <span>04</span>Stories
+              <script>
+                document
+                  .getElementById("li_04_stories")
+                  .addEventListener("click", function handleClick() {
+                    document.getElementById("navi-toggle").click();
+                  });
+              </script>
             </a>
           </li>
           <li class="navigation__item">
-            <a href="#section-book" class="navigation__link">
+            <a href="#section-book" class="navigation__link" id="li_05_bookNow">
               <span>05</span>Book Now
+              <script>
+                document
+                  .getElementById("li_05_bookNow")
+                  .addEventListener("click", function handleClick() {
+                    document.getElementById("navi-toggle").click();
+                  });
+              </script>
             </a>
           </li>
         </ul>
@@ -211,7 +271,7 @@
                     <p class="card__price-only">Only</p>
                     <p class="card__price-value">$297</p>
                   </div>
-                  <a href="#section-tours" class="btn btn--white">Book now!</a>
+                  <a href="#popup" class="btn btn--white">Book now!</a>
                 </div>
               </div>
             </div>
@@ -241,7 +301,7 @@
                     <p class="card__price-only">Only</p>
                     <p class="card__price-value">$497</p>
                   </div>
-                  <a href="#section-tours" class="btn btn--white">Book now!</a>
+                  <a href="#popup" class="btn btn--white">Book now!</a>
                 </div>
               </div>
             </div>
@@ -271,7 +331,7 @@
                     <p class="card__price-only">Only</p>
                     <p class="card__price-value">$897</p>
                   </div>
-                  <a href="#section-tours" class="btn btn--white">Book now!</a>
+                  <a href="#popup" class="btn btn--white">Book now!</a>
                 </div>
               </div>
             </div>
@@ -409,6 +469,34 @@
           </div>
         </div>
       </section>
+      <div class="popup" id="popup">
+        <div class="popup__content">
+          <div class="popup__left">
+            <img src="img/nat-8.jpg" alt="Tour Photo" class="popup__img" />
+            <img src="img/nat-9.jpg" alt="Tour Photo" class="popup__img" />
+          </div>
+          <div class="popup__right">
+            <a href="#section-tours" class="popup__close">&times;</a>
+            <h2 class="heading-secondary u-margin-bottom-medium">
+              Start Booking Now
+            </h2>
+            <h3 class="heading-tertiary u-margin-bottom-small">
+              Important &ndash; Please read these terms before booking
+            </h3>
+            <p class="popup__text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis
+              quas fugit molestiae, id excepturi expedita sunt rerum
+              reprehenderit, neque fugiat provident harum pariatur explicabo
+              incidunt perspiciatis? Unde doloribus et libero. Lorem ipsum dolor
+              sit amet consectetur adipisicing elit. Quo incidunt voluptates
+              autem. Quibusdam, harum asperiores nesciunt cumque in delectus
+              necessitatibus repellendus, voluptatibus ipsa odio optio iusto
+              voluptas praesentium impedit dignissimos!
+            </p>
+            <a href="#popup" class="btn btn--green">Book Now</a>
+          </div>
+        </div>
+      </div>
     </main>
     <footer class="footer">
       <div class="footer__logo-box">
