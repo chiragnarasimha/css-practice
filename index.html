@@ -16,6 +16,7 @@
 
     <title>Natours | Exciting tours for adventurous people</title>
     <script src="script.js" defer></script>
+    <!-- <script src="script_dev.js" defer></script> -->
   </head>
 
   <body>
@@ -28,14 +29,9 @@
       >
         <span class="navigation__icon"> </span>
       </label>
-      <!-- <label for="navi-toggle" class="navigation__button">
-        <a href="#navigation" class="navigation__button-href">
-          <span class="navigation__icon"> </span>
-        </a>
-      </label> -->
       <div class="navigation__background">&nbsp;</div>
       <nav class="navigation__nav">
-        <ul class="navigation__list">
+        <ul class="navigation__list" id="navigation__list">
           <li class="navigation__item">
             <a
               href="#section-about"
@@ -44,13 +40,6 @@
             >
               <span>01</span>
               About Natours
-              <script>
-                document
-                  .getElementById("li_01_aboutNatours")
-                  .addEventListener("click", function handleClick() {
-                    document.getElementById("navi-toggle").click();
-                  });
-              </script>
             </a>
           </li>
           <li class="navigation__item">
@@ -60,13 +49,6 @@
               id="li_02_yourBenefits"
             >
               <span>02</span>Your Benefits
-              <script>
-                document
-                  .getElementById("li_02_yourBenefits")
-                  .addEventListener("click", function handleClick() {
-                    document.getElementById("navi-toggle").click();
-                  });
-              </script>
             </a>
           </li>
           <li class="navigation__item">
@@ -76,13 +58,6 @@
               id="li_03_popularTours"
             >
               <span>03</span>Popular tours
-              <script>
-                document
-                  .getElementById("li_03_popularTours")
-                  .addEventListener("click", function handleClick() {
-                    document.getElementById("navi-toggle").click();
-                  });
-              </script>
             </a>
           </li>
           <li class="navigation__item">
@@ -92,25 +67,11 @@
               id="li_04_stories"
             >
               <span>04</span>Stories
-              <script>
-                document
-                  .getElementById("li_04_stories")
-                  .addEventListener("click", function handleClick() {
-                    document.getElementById("navi-toggle").click();
-                  });
-              </script>
             </a>
           </li>
           <li class="navigation__item">
             <a href="#section-book" class="navigation__link" id="li_05_bookNow">
               <span>05</span>Book Now
-              <script>
-                document
-                  .getElementById("li_05_bookNow")
-                  .addEventListener("click", function handleClick() {
-                    document.getElementById("navi-toggle").click();
-                  });
-              </script>
             </a>
           </li>
         </ul>
@@ -130,7 +91,10 @@
           <span class="heading-primary--main">Outdoors</span>
           <span class="heading-primary--sub">is where life happens</span>
         </h1>
-        <a href="#section-tours" class="btn btn--white btn--animated"
+        <a
+          href="#section-about"
+          class="btn btn--white btn--animated"
+          id="btn-Header-discoverOurTours"
           >Discover our tours</a
         >
       </div>
@@ -165,7 +129,12 @@
               ut. Dolorum, aliquam expedita.
             </p>
             <!-- # is used when we dont want the anchor to point to anywhere -->
-            <a href="#section-about" class="btn-text">Learn More &rarr;</a>
+            <a
+              href="#section-features"
+              class="btn-text"
+              id="btn-section-about-learnMore"
+              >Learn More &rarr;</a
+            >
           </div>
 
           <div class="col-1-of-2">
@@ -339,7 +308,12 @@
         </div>
 
         <div class="u-center-text u-margin-top-big">
-          <a href="#section-tours" class="btn btn--green">Discover all tours</a>
+          <a
+            href="#section-tours"
+            class="btn btn--green"
+            id="btn-section-tours-discoverAllTours"
+            >Discover all tours</a
+          >
         </div>
       </section>
       <section class="section-stories" id="section-stories">
@@ -400,7 +374,10 @@
           </div>
         </div>
         <div class="u-center-text u-margin-bottom-big">
-          <a href="#section-stories" class="btn-text"
+          <a
+            href="#section-stories"
+            class="btn-text"
+            id="btn-section-stories-readAllStories"
             >Read all stories &rarr;</a
           >
         </div>

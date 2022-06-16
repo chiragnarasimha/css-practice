@@ -107,5 +107,5 @@ dist
 *.DS_Store
 .DS_Store
 .DS_Store
-script.js
-./script.js
+script_dev.js
+./script_dev.js
