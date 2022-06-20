@@ -29,3 +29,73 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+// **************************** Media Queries related mixins **************************** //
+
+/**
+  Having these mixins to declare the media queries is a good practice.
+  This is because, in the future, if we want to change any of the 
+  pixels, then we can just change that here in the mixins.
+
+  As of 20 Jun 2022, these break points make the most sense for the devices
+  currently in the market
+  |-------------------|-------------------------|
+  | Pixel Range       | Device                  |
+  |-------------------|-------------------------|
+  | 0px - 600px       | Phone                   |
+  | 600px - 900px     | Tablet Portrait Mode    |
+  | 900px - 1200px    | Tablet Landscape Mode   |   
+  | 1200px - 1800px   | Normal Styles Apply     |
+  | 1800px+           | Tablet Portrait Mode    |
+  |-------------------|-------------------------|
+  
+  The media query manager below is using ems instead of rems, or px.
+  This is purely from experience. It is found that for media queries, it is 
+  better to use ems instead of rems
+  If the user changes the browser font size, then ems tend to respond better.
+  For media queries in particular, rems do not work as expected. ems tend to 
+  work better
+
+  1em = 16px (16 px is the default font-size in most browsers
+
+*/
+
+@mixin respond($breakpoint) {
+  /// This is a media query manager
+  ///
+  /// @param {string} $breakpoint
+  ///   Argument choices are
+  ///   - phone
+  ///   - tab-port
+  ///   - tab-land
+  ///   - big-desktop
+  ///
+
+  @if $breakpoint==phone {
+    @media (max-width: 37.5em) {
+      // 600px/16 = 37.5em
+      /**
+        @content - This is how we can pass a block of code into the mixin
+      */
+      @content;
+    }
+  }
+  @if $breakpoint==tab-port {
+    @media (max-width: 56.25em) {
+      // 900px/16 = 56.25em
+      @content;
+    }
+  }
+  @if $breakpoint==tab-land {
+    @media (max-width: 75em) {
+      // 1200px/16 = 75em
+      @content;
+    }
+  }
+  @if $breakpoint==big-desktop {
+    @media (min-width: 112.5em) {
+      // 1800px/16 = 112.5em
+      @content;
+    }
+  }
+}

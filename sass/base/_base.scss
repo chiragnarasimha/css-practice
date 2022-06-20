@@ -34,11 +34,18 @@ html {
     Note: Since we are changing the root font-size here, we could make the argument that this bit should be moved into typography. However, we are actually changing the overall setting. It makes more sense to keep this here for now. This setting is defining what 1REM is. 
   */
   font-size: 62.5%;
-  // width: 1728px;
-  // display: block;
-  // position: absolute;
-  // left: 50%;
-  // transform: translateX(-50%);
+  // @include respond-phone {
+  //   font-size: 50%;
+  // }
+  @include respond(big-desktop) {
+    font-size: 75%;
+  }
+  @include respond(tab-land) {
+    font-size: 56.25%;
+  }
+  @include respond(tab-port) {
+    font-size: 50%;
+  }
 }
 
 /**
