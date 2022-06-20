@@ -4,6 +4,13 @@
 
 .row {
   max-width: $grid-width;
+  @include respond(tab-port) {
+    max-width: 50rem;
+    padding: 0 3rem;
+  }
+  @include respond(tab-land) {
+    padding: 0 3rem;
+  }
 
   /**
         We are saying that the margin on top and bottom is 0. The margins left and right is auto
@@ -15,6 +22,9 @@
     */
   &:not(:last-child) {
     margin-bottom: $gutter-vertical;
+    @include respond(tab-port) {
+      margin-bottom: $gutter-vertical-small;
+    }
   }
   @include clearfix;
   /**
@@ -29,6 +39,18 @@
     float: left;
     &:not(:last-child) {
       margin-right: $gutter-horizontal;
+      @include respond(tab-port) {
+        margin-right: 0;
+        margin-bottom: $gutter-vertical-small;
+      }
+    }
+    /**
+      When optimizing for mobile, generally, all the columns are transformed
+      into rows
+    */
+
+    @include respond(tab-port) {
+      width: 100% !important;
     }
   }
   .col-1-of-2 {

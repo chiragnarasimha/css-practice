@@ -419,7 +419,11 @@ body {
   text-align: center;
   border-radius: 1.6rem;
   box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
-  transition: all 0.5s; }
+  transition: all 0.5s;
+  height: 40rem; }
+  @media (max-width: 56.25em) {
+    .feature-box {
+      height: max-content; } }
   .feature-box__icon {
     font-size: 6rem;
     margin-bottom: 0.5rem;
@@ -866,8 +870,18 @@ body {
         *= Any class that contains the specified name
         $= Any class that ends with the specified name
     */ }
+  @media (max-width: 56.25em) {
+    .row {
+      max-width: 50rem;
+      padding: 0 3rem; } }
+  @media (max-width: 75em) {
+    .row {
+      padding: 0 3rem; } }
   .row:not(:last-child) {
     margin-bottom: 8rem; }
+    @media (max-width: 56.25em) {
+      .row:not(:last-child) {
+        margin-bottom: 6rem; } }
   .row::after {
     /**
         It is important to specify some content. Even if its empty. if not, the element will not be displayed on the screen.
@@ -882,9 +896,20 @@ body {
     */
     clear: both; }
   .row [class^="col-"] {
-    float: left; }
+    float: left;
+    /**
+      When optimizing for mobile, generally, all the columns are transformed
+      into rows
+    */ }
     .row [class^="col-"]:not(:last-child) {
       margin-right: 6rem; }
+      @media (max-width: 56.25em) {
+        .row [class^="col-"]:not(:last-child) {
+          margin-right: 0;
+          margin-bottom: 6rem; } }
+    @media (max-width: 56.25em) {
+      .row [class^="col-"] {
+        width: 100% !important; } }
   .row .col-1-of-2 {
     width: calc((100% - 6rem) / 2); }
   .row .col-1-of-3 {
@@ -933,6 +958,12 @@ body {
     The & symbol will get translated to .header
     For example &__logo-box is same as .header__logo-box
   */ }
+  @media (max-width: 37.5em) {
+    .header {
+      /**
+        @content - This is how we can pass a block of code into the mixin
+      */
+      clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%); } }
   .header__logo-box {
     position: absolute;
     /**
@@ -960,12 +991,18 @@ body {
   padding: 10rem 0;
   font-size: 1.4rem;
   color: #eee; }
+  @media (max-width: 56.25em) {
+    .footer {
+      padding: 8rem 0; } }
   .footer__logo {
     width: 15rem;
     height: auto; }
     .footer__logo-box {
       text-align: center;
       margin-bottom: 8rem; }
+      @media (max-width: 56.25em) {
+        .footer__logo-box {
+          margin-bottom: 6rem; } }
   .footer__navigation {
     border-top: 1px solid #eee;
     padding-top: 2rem;
@@ -973,12 +1010,19 @@ body {
         inline block will not occupy 100% of the width. It will occupy the width that the content will need
     */
     display: inline-block; }
+    @media (max-width: 56.25em) {
+      .footer__navigation {
+        width: 100%;
+        text-align: center; } }
   .footer__list {
     list-style: none; }
   .footer__item {
     display: inline-block; }
     .footer__item:not(:last-child) {
       margin-right: 1.5rem; }
+      @media (max-width: 56.25em) {
+        .footer__item:not(:last-child) {
+          margin-right: 0; } }
   .footer__link:link, .footer__link:visited {
     color: #eee;
     background-color: #333;
@@ -1001,6 +1045,10 @@ body {
     padding-top: 2rem;
     width: 80%;
     float: right; }
+    @media (max-width: 56.25em) {
+      .footer__copyright {
+        width: 100%;
+        float: none; } }
 
 .navigation__checkbox {
   display: none; }
@@ -1018,6 +1066,17 @@ body {
   text-align: center;
   cursor: pointer;
   transition: all 0.1s; }
+  @media (max-width: 56.25em) {
+    .navigation__button {
+      top: 4rem;
+      right: 4rem; } }
+  @media (max-width: 37.5em) {
+    .navigation__button {
+      /**
+        @content - This is how we can pass a block of code into the mixin
+      */
+      top: 3rem;
+      right: 3rem; } }
   .navigation__button:hover {
     transform: scale(1.1) translateY(-3px);
     box-shadow: 0 2rem 3rem rgba(0, 0, 0, 0.2); }
@@ -1035,6 +1094,17 @@ body {
   background-image: radial-gradient(#7ed56f, #28b485);
   z-index: 1000;
   transition: all 0.8s cubic-bezier(0.85, 0, 0.15, 1); }
+  @media (max-width: 56.25em) {
+    .navigation__background {
+      top: 4.5rem;
+      right: 4.5rem; } }
+  @media (max-width: 37.5em) {
+    .navigation__background {
+      /**
+        @content - This is how we can pass a block of code into the mixin
+      */
+      top: 3.5rem;
+      right: 3.5rem; } }
 
 .navigation__nav {
   height: 100vh;

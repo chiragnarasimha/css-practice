@@ -6,6 +6,10 @@
   border-radius: $default-border-radius;
   box-shadow: 0 1.5rem 4rem rgba($color-black, 0.15);
   transition: all 0.5s;
+  height: 40rem;
+  @include respond(tab-port) {
+    height: max-content;
+  }
   &__icon {
     font-size: 6rem;
     margin-bottom: 0.5rem;

@@ -15,6 +15,15 @@
     text-align: center;
     cursor: pointer;
 
+    @include respond(tab-port) {
+      top: 4rem;
+      right: 4rem;
+    }
+    @include respond(phone) {
+      top: 3rem;
+      right: 3rem;
+    }
+
     transition: all 0.1s;
     &:hover {
       transform: scale(1.1) translateY(-3px);
@@ -34,14 +43,20 @@
     right: 6.5rem;
     // top: 9.5rem;
     top: 6.5rem;
+    @include respond(tab-port) {
+      top: 4.5rem;
+      right: 4.5rem;
+    }
+    @include respond(phone) {
+      top: 3.5rem;
+      right: 3.5rem;
+    }
     background-image: radial-gradient(
       $color-primary-light,
       $color-primary-dark
     );
     z-index: 1000;
     transition: all 0.8s cubic-bezier(0.85, 0, 0.15, 1);
-
-    // transform: scale(100);
   }
   &__nav {
     height: 100vh;
