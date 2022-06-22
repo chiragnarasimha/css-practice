@@ -78,6 +78,10 @@
         They will be blocks, but within the same line
       */
       display: inline-block;
+      @include respond(tab-port) {
+        width: 100%;
+        margin-bottom: 2rem;
+      }
     }
     &-label {
       font-size: $default-font-size;

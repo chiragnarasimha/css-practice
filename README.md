@@ -18,3 +18,6 @@ Free videos that can be used in the site
 
 easings -> https://easings.net/
 Custom CSS animations timing functions
+
+sizzy -> https://sizzy.co/
+Check the how the page looks on multiple devices

@@ -11,7 +11,6 @@
   position: relative;
   height: 52rem;
   &__side {
-    background-color: orangered;
     height: 52rem;
     transition: all 0.8s ease;
     position: absolute;
@@ -189,5 +188,66 @@
   &__price-value {
     font-size: 6rem;
     font-weight: 100;
+  }
+
+  @include respond(tab-port) {
+    height: auto;
+    background-color: $color-white;
+    border-radius: $default-border-radius;
+    // border-top-left-radius: $default-border-radius;
+    // border-top-right-radius: $default-border-radius;
+
+    box-shadow: 0 1.5rem 4rem rgba($color: $color-black, $alpha: 0.15);
+
+    &--front {
+      border-radius: 0rem;
+      border-top-left-radius: $default-border-radius;
+      border-top-right-radius: $default-border-radius;
+    }
+
+    &__side {
+      height: auto;
+      position: relative;
+      border-radius: 0rem;
+      background-color: transparent;
+
+      box-shadow: none;
+      &--back {
+        transform: rotateY(0deg);
+        clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+        border-bottom-left-radius: $default-border-radius;
+        border-bottom-right-radius: $default-border-radius;
+      }
+    }
+
+    &:hover &__side--front {
+      transform: rotateY(0deg);
+    }
+    &:hover &__side--back {
+      transform: rotateY(0deg);
+    }
+
+    &__cta {
+      position: relative;
+      top: 0%;
+      left: 0%;
+      transform: translate(0);
+      width: 100%;
+      text-align: center;
+      padding: 7rem 4rem 4rem 4rem;
+      background-color: transparent;
+    }
+    &__price-box {
+      text-align: center;
+      color: $color-white;
+      margin-bottom: 3rem;
+    }
+    &__price-only {
+      font-size: 1.4rem;
+    }
+    &__price-value {
+      font-size: 4rem;
+      font-weight: 100;
+    }
   }
 }
