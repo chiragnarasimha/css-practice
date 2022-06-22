@@ -967,7 +967,7 @@ body {
     vh - view port height. This will make it so that the height of the header will always be 95% of the viewport height 
   */
   height: 95vh;
-  margin-bottom: 4rem;
+  margin-bottom: -25rem;
   /**
     using the comma separator, we can add multiple images. The first one will be the top most image 
   */
@@ -985,7 +985,7 @@ body {
     corresponding corners: polygon( TL, TR, BR, BL) 
   */
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
-  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
   /**
     The child elements will now use this parameter to align them selves 
   */
@@ -994,12 +994,16 @@ body {
     The & symbol will get translated to .header
     For example &__logo-box is same as .header__logo-box
   */ }
+  @media (max-width: 56.25em) {
+    .header {
+      height: 75vh;
+      margin-bottom: 1rem; } }
   @media (max-width: 37.5em) {
     .header {
       /**
         @content - This is how we can pass a block of code into the mixin
       */
-      clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%); } }
+      clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%); } }
   .header__logo-box {
     position: absolute;
     /**
@@ -1021,6 +1025,9 @@ body {
     */
     transform: translate(-50%, -50%);
     text-align: center; }
+    @media (max-width: 56.25em) {
+      .header__text-box {
+        top: 45%; } }
 
 .footer {
   background-color: #333;
