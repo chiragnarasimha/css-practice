@@ -14,22 +14,48 @@
     position: absolute;
     transition: all 0.2s;
 
+    @include respond(tab-port) {
+      float: left;
+      position: relative;
+      width: 33.3333%;
+      box-shadow: 0 1.5rem 3rem rgba($color-black, 0.2);
+    }
+
     &--p1 {
       left: 0;
       top: -2rem;
+      @include respond(tab-port) {
+        left: 0;
+        top: 0rem;
+        transform: scale(1.1);
+      }
     }
     &--p2 {
       right: 0;
       top: 2rem;
+      @include respond(tab-port) {
+        right: 0;
+        top: -20px;
+        z-index: 1;
+        transform: scale(1.3);
+      }
     }
     &--p3 {
       left: 20%;
       top: 10rem;
+      @include respond(tab-port) {
+        left: 0;
+        top: 0px;
+        transform: scale(1.1);
+      }
     }
     &:hover {
       transform: scale(1.05) translateY(-0.5rem);
       box-shadow: 0 2.5 6rem rgba($color: $color-black, $alpha: 0.6);
       z-index: 10;
+      @include respond(tab-port) {
+        transform: scale(1.4) translateY(-1rem);
+      }
 
       /**
           Adding the frame to the image
