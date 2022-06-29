@@ -21,3 +21,6 @@ Custom CSS animations timing functions
 
 sizzy -> https://sizzy.co/
 Check the how the page looks on multiple devices
+
+icomoon -> https://icomoon.io
+Get SVG icon vectors
